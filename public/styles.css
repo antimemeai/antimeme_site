@@ -129,7 +129,7 @@ main {
 h1 {
   margin: 0;
   font-size: clamp(64px, 7.6vw, 112px);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 0.99;
   letter-spacing: -0.06em;
 }
@@ -146,7 +146,7 @@ h1 {
 .intro-note {
   max-width: 52ch;
   margin: 0;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.55;
   letter-spacing: -0.015em;
 }
@@ -157,6 +157,31 @@ h1 {
   color: var(--muted);
   font-size: 16px;
   line-height: 1.55;
+}
+
+.intro-context,
+.team-background {
+  display: block;
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 1.55;
+  letter-spacing: -0.015em;
+}
+
+.intro-context {
+  color: var(--muted);
+}
+
+.capabilities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 24px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
 }
 
 .domains {
@@ -280,7 +305,7 @@ h1 {
   }
 
   .intro-promise {
-    font-size: clamp(22px, 3.1svh, 28px);
+    font-size: clamp(22px, 2.8svh, 25px);
   }
 
   h1 {
@@ -349,8 +374,8 @@ h1 {
 
   .domains {
     gap: 8px 20px;
-    margin-top: 12px;
-    padding-top: 12px;
+    margin-top: 10px;
+    padding-top: 10px;
   }
 }
 
@@ -420,7 +445,7 @@ h1 {
   }
 
   .intro-promise {
-    font-size: 25px;
+    font-size: 23px;
   }
 
   .intro-note {
