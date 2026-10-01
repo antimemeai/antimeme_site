@@ -242,6 +242,10 @@ h1 {
     margin-bottom: clamp(18px, 3svh, 31px);
   }
 
+  .intro-layout {
+    grid-template-columns: minmax(0, 1fr) clamp(320px, 25vw, 360px);
+  }
+
   h1 {
     font-size: min(7.6vw, 12svh, 112px);
   }
