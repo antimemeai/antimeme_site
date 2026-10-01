@@ -219,9 +219,48 @@ h1 {
   font-size: 10px;
 }
 
-@media (min-width: 1600px) {
+/* Desktop spacing follows viewport height so the entire shingle fits on screen. */
+@media (min-width: 1001px) {
+  .masthead {
+    padding-block: clamp(18px, 3.5svh, 35px) clamp(18px, 3svh, 30px);
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
   .intro {
-    padding-block: 120px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: clamp(20px, 4svh, 72px);
+  }
+
+  .eyebrow {
+    margin-bottom: clamp(18px, 3svh, 31px);
+  }
+
+  h1 {
+    font-size: min(7.6vw, 12svh, 112px);
+  }
+
+  .service {
+    padding-top: clamp(12px, 2svh, 19px);
+  }
+
+  .service h2 {
+    margin-top: clamp(12px, 2.3svh, 23px);
+  }
+
+  .contact {
+    margin-top: clamp(24px, 5svh, 82px);
+    padding-block: clamp(18px, 3.1svh, 31px) clamp(18px, 3.5svh, 35px);
+  }
+
+  .colophon {
+    padding-block: clamp(10px, 1.7svh, 17px) clamp(12px, 2.4svh, 24px);
   }
 }
 
