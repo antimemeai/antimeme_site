@@ -22,14 +22,27 @@ SIL Open Font License texts. Visitors make no requests to Google Fonts.
 
 ## Cloudflare Pages
 
-Connect this Git repository to a Pages project. Set:
+Open **Workers & Pages → Create application → Pages → Import an existing Git
+repository** in the Cloudflare dashboard. Connect GitHub and select
+[`antimemeai/antimeme_site`](https://github.com/antimemeai/antimeme_site).
+Use these settings:
 
 - Production branch: `master`
 - Framework preset: `None`
 - Build command: `exit 0`
 - Build output directory: `public`
+- Root directory: leave blank (repository root)
+- Environment variables: none
 
-There is no build: Pages serves `public/` directly. Add `antimeme.ai` under the
-project’s **Custom domains** after the initial deployment.
+Select **Save and Deploy**. There is no build: Pages serves `public/` directly.
+Subsequent pushes to `master` deploy automatically. Only `public/` is published;
+repository documentation and issue-tracker files stay outside the site.
 
-Reference: [Cloudflare’s static HTML guide](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/).
+Open the resulting `*.pages.dev` URL and verify the page, fonts, and both email
+links. Then open the project's **Custom domains → Set up a domain** and enter
+`antimeme.ai`. The apex domain must be a zone in the same Cloudflare account, with
+its nameservers pointing to Cloudflare; follow the dashboard's DNS setup.
+
+References: [Static HTML](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/),
+[Git integration](https://developers.cloudflare.com/pages/get-started/git-integration/),
+[Custom domains](https://developers.cloudflare.com/pages/configuration/custom-domains/).
