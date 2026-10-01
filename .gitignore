@@ -1,4 +1,6 @@
-
-# Dolt database files (added by bd init)
+.DS_Store
+*.pdf
+/quarantine/
+/context/
 .dolt/
 *.db
