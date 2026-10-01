@@ -119,15 +119,7 @@ h1 {
   letter-spacing: -0.04em;
 }
 
-.intro-promise {
-  max-width: 36ch;
-  margin: 0;
-  font-size: 30px;
-  font-weight: 400;
-  line-height: 1.22;
-  letter-spacing: -0.035em;
-}
-
+.intro-promise,
 .intro-note {
   max-width: 52ch;
   margin: 0;
@@ -162,9 +154,8 @@ h1 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px 24px;
   max-width: 52ch;
-  margin: 18px 0 0;
-  padding: 14px 0 0;
-  border-top: 1px solid var(--rule);
+  margin: 12px 0 0;
+  padding: 0;
   list-style: none;
   font-family: var(--mono);
   font-size: 12px;
@@ -269,10 +260,6 @@ h1 {
     margin-top: clamp(18px, 3.6svh, 36px);
   }
 
-  .intro-promise {
-    font-size: clamp(22px, 2.8svh, 25px);
-  }
-
   .services {
     row-gap: clamp(18px, 3svh, 30px);
     margin-bottom: clamp(16px, 3svh, 32px);
@@ -344,7 +331,6 @@ h1 {
   .domains {
     gap: 8px 20px;
     margin-top: 10px;
-    padding-top: 10px;
   }
 }
 
@@ -402,14 +388,6 @@ h1 {
     grid-template-columns: 1fr;
     gap: 22px;
     margin-top: 30px;
-  }
-
-  .intro-promise {
-    font-size: 23px;
-  }
-
-  .intro-note {
-    font-size: 16px;
   }
 
   .services {
