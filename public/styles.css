@@ -83,7 +83,6 @@ a:focus-visible {
 }
 
 .practice-label,
-.eyebrow,
 .service-number,
 .colophon {
   font-family: var(--mono);
@@ -101,21 +100,7 @@ main {
 }
 
 .intro {
-  padding-block: clamp(64px, 7.2vw, 104px) clamp(64px, 7.2vw, 104px);
-}
-
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin: 0 0 31px;
-  text-transform: uppercase;
-  letter-spacing: 0.065em;
-}
-
-.registration-mark {
-  font-size: 20px;
-  line-height: 1;
+  padding-block: clamp(36px, 5vw, 56px);
 }
 
 .intro-layout {
@@ -128,10 +113,10 @@ main {
 
 h1 {
   margin: 0;
-  font-size: clamp(64px, 7.6vw, 112px);
+  font-size: clamp(36px, 4vw, 56px);
   font-weight: 400;
-  line-height: 0.99;
-  letter-spacing: -0.06em;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
 }
 
 .intro-promise {
@@ -289,15 +274,7 @@ h1 {
   }
 
   .intro {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-block: clamp(16px, 2.5svh, 48px);
-  }
-
-  .eyebrow {
-    margin-bottom: clamp(18px, 3svh, 31px);
+    padding-block: clamp(24px, 5svh, 56px);
   }
 
   .intro-layout {
@@ -308,8 +285,8 @@ h1 {
     font-size: clamp(22px, 2.8svh, 25px);
   }
 
-  h1 {
-    font-size: min(7vw, 10svh, 104px);
+  .services {
+    margin-bottom: clamp(16px, 3svh, 32px);
   }
 
   .service {
@@ -321,7 +298,7 @@ h1 {
   }
 
   .contact {
-    margin-top: clamp(24px, 5svh, 82px);
+    margin-top: auto;
     padding-block: clamp(18px, 3.1svh, 31px) clamp(18px, 3.5svh, 35px);
   }
 
@@ -332,11 +309,7 @@ h1 {
 
 @media (min-width: 1001px) and (max-height: 760px) {
   .intro {
-    padding-block: 10px;
-  }
-
-  .eyebrow {
-    margin-bottom: 14px;
+    padding-block: 18px;
   }
 
   .intro-layout {
@@ -344,7 +317,6 @@ h1 {
   }
 
   .contact {
-    margin-top: 16px;
     padding-block: 12px;
   }
 
@@ -422,20 +394,11 @@ h1 {
   }
 
   .intro {
-    padding-block: 62px 52px;
-  }
-
-  .eyebrow {
-    gap: 9px;
-    margin-bottom: 25px;
-    font-size: 9px;
-    letter-spacing: 0.035em;
+    padding-block: 36px 40px;
   }
 
   h1 {
-    font-size: clamp(36px, 11vw, 66px);
-    line-height: 1.03;
-    letter-spacing: -0.055em;
+    font-size: clamp(32px, 8.5vw, 42px);
   }
 
   .intro-layout {
