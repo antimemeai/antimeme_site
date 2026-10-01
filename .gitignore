@@ -4,3 +4,4 @@
 /context/
 .dolt/
 *.db
+*.swp
