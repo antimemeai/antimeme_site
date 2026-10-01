@@ -130,7 +130,7 @@ h1 {
 
 .team-note {
   max-width: 52ch;
-  margin: 16px 0 0;
+  margin: 6px 0 0;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.55;
@@ -322,10 +322,6 @@ h1 {
   .service h2 {
     margin-bottom: 8px;
     font-size: 21px;
-  }
-
-  .team-note {
-    margin-top: 12px;
   }
 
   .domains {
