@@ -145,6 +145,7 @@ h1 {
 
 .local-note {
   display: block;
+  margin-top: 6px;
 }
 
 .inline-contact {
