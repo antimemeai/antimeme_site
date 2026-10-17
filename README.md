@@ -10,6 +10,9 @@ sets the port: `./scripts/serve 8080`.
 
 ## Edit
 
+Read [site direction](docs/SITE_DIRECTION.md) before changing copy or structure:
+concrete glimpses, not a catalog; no engagement explanation or funnel.
+
 All copy is in `public/index.html`, including the page title and description.
 The contact link uses `hiya@antimeme.ai`. Layout, colors, and type are in
 `public/styles.css`; the colors are defined at the top of the stylesheet.
