@@ -38,8 +38,10 @@ The operator subsequently requested top navigation and a separate open-source
 page. Keep it a short software page, not a resume: concrete descriptions,
 honest maturity, working source links. The initial entries are Blackbird,
 Verbs, and BRepGPU, whose existing GitHub repositories are publicly accessible.
-Link those existing repositories without declaring a new canonical hosting
-policy. Do not list a local-only or unreleased project as available software.
+The operator also requested SALib and crate links for SALib and Verbs.
+Link these existing repositories and published crates without declaring a new
+canonical hosting policy. Do not list a local-only or unreleased project as
+available software.
 
 No service reclassification, hosting strategy, ownership statement, or
 licensing policy is adopted merely because the business note proposes it.

@@ -24,7 +24,8 @@ The restrained page is designed to fit on one screen when the viewport has
 sufficient room. Spacing responds to viewport height on desktop and tablets.
 Phones, small windows, and enlarged text may scroll; content is never clipped
 to force a fit. Services use three columns on desktop, two on tablets, and one
-on phones; text wraps without forced line breaks.
+on phones; text wraps without forced line breaks. The four-entry open-source
+page uses two columns above phone widths and one on phones.
 A keyboard skip link leads directly to the main content.
 
 `archive/` holds previous pages for reference, including the multiplayer-agents

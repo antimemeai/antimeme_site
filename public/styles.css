@@ -211,6 +211,10 @@ h1 {
   gap: 40px;
 }
 
+.software-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .service {
   display: grid;
   grid-template-columns: 30px minmax(0, 1fr);
