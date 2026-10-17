@@ -14,8 +14,11 @@ All copy is in `public/index.html`, including the page title and description.
 The contact link uses `hiya@antimeme.ai`. Layout, colors, and type are in
 `public/styles.css`; the colors are defined at the top of the stylesheet.
 
-The page scrolls naturally at every size. Services use three columns on desktop,
-two on tablets, and one on phones; text wraps without forced line breaks.
+The restrained page is designed to fit on one screen when the viewport has
+sufficient room. Spacing responds to viewport height on desktop and tablets.
+Phones, small windows, and enlarged text may scroll; content is never clipped
+to force a fit. Services use three columns on desktop, two on tablets, and one
+on phones; text wraps without forced line breaks.
 A keyboard skip link leads directly to the main content.
 
 `archive/` holds previous pages for reference, including the multiplayer-agents
