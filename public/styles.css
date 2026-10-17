@@ -80,7 +80,8 @@ a:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 12px 24px;
   padding-block: 35px 30px;
   border-bottom: 1px solid var(--ink);
 }
@@ -98,7 +99,7 @@ a:focus-visible {
   margin-left: 3px;
 }
 
-.practice-label,
+.site-nav,
 .service-number,
 .colophon {
   font-family: var(--mono);
@@ -107,8 +108,36 @@ a:focus-visible {
   line-height: 1.6;
 }
 
-.practice-label {
-  text-align: right;
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.site-nav a {
+  padding-block: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.site-nav a[aria-current="page"],
+.site-nav a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.service .project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.project-meta a {
+  text-underline-offset: 4px;
 }
 
 main {
@@ -398,9 +427,8 @@ h1 {
     font-size: 17px;
   }
 
-  .practice-label {
-    max-width: 120px;
-    font-size: 9px;
+  .site-nav {
+    gap: 16px;
   }
 
   .intro {

@@ -34,7 +34,14 @@ may scroll; never hide content to force a fit. Keep the static wordmark, local
 fonts, plain HTML/CSS, and keyboard access. No animations, analytics, badges,
 frameworks, or build step.
 
-No software section, service reclassification, hosting strategy, ownership
-statement, or licensing policy is adopted merely because the business note
-proposes it. Decide those separately with the operator. Do not remove concrete
-capabilities just to make the page look like a conventional consultancy.
+The operator subsequently requested top navigation and a separate open-source
+page. Keep it a short software page, not a resume: concrete descriptions,
+honest maturity, working source links. The initial entries are Blackbird,
+Verbs, and BRepGPU, whose existing GitHub repositories are publicly accessible.
+Link those existing repositories without declaring a new canonical hosting
+policy. Do not list a local-only or unreleased project as available software.
+
+No service reclassification, hosting strategy, ownership statement, or
+licensing policy is adopted merely because the business note proposes it.
+Decide those separately with the operator. Do not remove concrete capabilities
+just to make the page look like a conventional consultancy.

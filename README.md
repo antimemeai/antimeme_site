@@ -13,7 +13,10 @@ sets the port: `./scripts/serve 8080`.
 Read [site direction](docs/SITE_DIRECTION.md) before changing copy or structure:
 concrete glimpses, not a catalog; no engagement explanation or funnel.
 
-All copy is in `public/index.html`, including the page title and description.
+Services copy is in `public/index.html`; open-source copy is in
+`public/open-source/index.html`. Each page has its own title and description.
+The shared top navigation links `/` and `/open-source/`; keep both copies in
+sync and set `aria-current="page"` only on the current page's link.
 The contact link uses `hiya@antimeme.ai`. Layout, colors, and type are in
 `public/styles.css`; the colors are defined at the top of the stylesheet.
 
