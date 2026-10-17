@@ -345,6 +345,14 @@ h1 {
 }
 
 @media (min-width: 601px) and (min-height: 851px) {
+  .services-intro {
+    padding-bottom: clamp(24px, 3.3svh, 56px);
+  }
+
+  .services-fill .service {
+    padding-top: calc(clamp(12px, 2svh, 19px) + 1svh);
+  }
+
   .services-fill .service h2 {
     font-size: 26px;
     margin-bottom: 14px;
