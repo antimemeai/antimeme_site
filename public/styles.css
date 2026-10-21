@@ -161,51 +161,30 @@ a:focus-visible {
   padding-block: 36px 64px;
 }
 
-.back-link,
-.essay-direction {
+.back-link {
   font-family: var(--mono);
   font-size: 11px;
   line-height: 1.6;
-}
-
-.back-link {
   display: inline-block;
   margin-bottom: 24px;
-  text-underline-offset: 4px;
-}
-
-.essay-nav {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px 32px;
-  padding-block: 18px;
-  border-block: 1px solid var(--rule);
-}
-
-.essay-nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  font-size: 15px;
-  line-height: 1.4;
+  padding-block: 6px;
   text-decoration: none;
 }
 
-.essay-nav a span:last-child {
+.back-link:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
+  text-underline-offset: 5px;
 }
 
-.essay-previous {
-  grid-column: 1;
+.essay-nav {
+  justify-content: space-between;
+  padding-block: 12px;
+  border-block: 1px solid var(--rule);
 }
 
-.essay-nav .essay-next {
-  grid-column: 2;
-  align-items: flex-end;
-  text-align: right;
+.essay-next {
+  margin-left: auto;
 }
 
 .essay-heading {
@@ -220,6 +199,10 @@ a:focus-visible {
 
 .essay-body p {
   margin: 0 0 1.25em;
+}
+
+.essay-body > :first-child {
+  margin-top: 0;
 }
 
 .essay-body h2,

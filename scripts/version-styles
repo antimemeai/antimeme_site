@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+"""Refresh stylesheet URLs after CSS edits without adding a build step."""
+
+from hashlib import sha256
+from pathlib import Path
+import re
+
+public = Path(__file__).resolve().parents[1] / "public"
+version = sha256((public / "styles.css").read_bytes()).hexdigest()[:12]
+for page in public.rglob("*.html"):
+    before = page.read_text()
+    after = re.sub(r'href="/styles\.css(?:\?[^\"]*)?"',
+                   f'href="/styles.css?v={version}"', before)
+    if after != before:
+        page.write_text(after)
+print(f"Stylesheet version: {version}")

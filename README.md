@@ -20,6 +20,10 @@ in sync across all seven pages. Set `aria-current="page"` on the current page's
 link, or `aria-current="location"` on Writing while reading an essay.
 The contact link uses `hiya@antimeme.ai`. Layout, colors, and type are in
 `public/styles.css`; the colors are defined at the top of the stylesheet.
+After changing CSS, run `python3 scripts/version-styles` before publishing.
+It updates the stylesheet URL on every page using a hash of the CSS, so a
+cached stylesheet cannot hide a new layout. This is an explicit edit command,
+not a build step.
 
 The restrained page is designed to fit on one screen when the viewport has
 sufficient room. Spacing responds to viewport height on desktop and tablets.
@@ -37,6 +41,10 @@ links at both ends. The sequence is Intuition, Cell to Atom Bomb,
 Intersubjective, Invariants, following the series introductions. The first
 essay has no previous link; the last has no next link. Articles scroll
 naturally. Their masthead and footer match the rest of the site.
+Each essay starts at its first substantive section beneath the title; the
+old summaries, disclaimers, welcomes, and released-essay lists are omitted.
+The previous/next links share the main navigation's small monospace type and
+hover underline. Destination titles remain in their accessible labels.
 
 Edit these HTML files directly. When adding an essay, update the title list
 and the neighboring essays' navigation at both ends. Keep shared navigation

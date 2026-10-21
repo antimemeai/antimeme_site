@@ -72,6 +72,15 @@ class Document:
             "".join(el.itertext()).strip().removeprefix("tl;dr: ")
             for el in self.body if "".join(el.itertext()).strip().startswith("tl;dr:")
         )
+        # Discard the publication preamble, including the released-essay list.
+        # Start at the first substantive section, retaining the title separately.
+        start = next(
+            i for i, el in enumerate(self.body)
+            if el.tag == attr("text", "h")
+            and int(el.get(attr("text", "outline-level"))) > 1
+            and "".join(el.itertext()).strip() not in ("", "Released Essays:")
+        )
+        self.body = list(self.body)[start:]
 
     def style_chain(self, name):
         while name in self.styles:
@@ -167,12 +176,14 @@ def neighbors(index, documents, position):
         if 0 <= neighbor < len(ESSAYS):
             slug = ESSAYS[neighbor][0]
             title = escape(documents[neighbor].title)
+            text = (f'<span aria-hidden="true">{arrow}</span> previous' if offset < 0
+                    else f'next <span aria-hidden="true">{arrow}</span>')
             links.append(
-                f'            <a class="essay-{label}" href="/writing/{slug}/" rel="{"prev" if offset < 0 else "next"}">\n'
-                f'              <span class="essay-direction">{arrow + " previous" if offset < 0 else "next " + arrow}</span>\n'
-                f'              <span>{title}</span>\n            </a>'
+                f'            <a class="essay-{label}" href="/writing/{slug}/" '
+                f'rel="{"prev" if offset < 0 else "next"}" '
+                f'aria-label="{label.capitalize()} essay: {title}">{text}</a>'
             )
-    return (f'          <nav class="essay-nav" aria-label="Essay navigation ({position})">\n'
+    return (f'          <nav class="site-nav essay-nav" aria-label="Essay navigation ({position})">\n'
             + "\n".join(links) + "\n          </nav>")
 
 

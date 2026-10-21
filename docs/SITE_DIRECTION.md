@@ -51,5 +51,9 @@ just to make the page look like a conventional consultancy.
 On 2026-10-21 the operator requested a Writing tab and a simple list of four
 recovered essays. Keep the index restrained. Essays use a readable text column
 and scroll naturally, with previous/next links at the top and bottom only
-where a neighbor exists. Preserve the original essay text and formatting;
-links between the imported essays point to their local pages.
+where a neighbor exists. Preserve the substantive essay text and formatting;
+links between the imported essays point to their local pages. The operator
+subsequently requested removal of all preamble content except the essay titles:
+start directly at the opening substantive section. Previous/next links use the
+same quiet monospace style as the main navigation, with destination titles in
+accessible labels rather than displayed alongside the arrows.
