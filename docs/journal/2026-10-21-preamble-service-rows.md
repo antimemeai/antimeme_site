@@ -35,3 +35,8 @@ reuses an existing production deployment for that commit or creates one,
 then checks production success for the requested SHA. Credentials are read
 without shell evaluation or logging. No project settings change. This replaces
 repeated inline API commands; the actual publishing run exercises the API.
+
+Published content commit 0a24285 through the utility. Production deployment
+ba61907c-d480-4457-9623-bb8bde5ecf4d completed successfully for that exact SHA.
+Verified the live homepage matches local HTML (apart from Cloudflare's beacon)
+and serves the large-row stylesheet. Temporary browser/server closed.
