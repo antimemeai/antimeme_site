@@ -59,6 +59,9 @@ same quiet monospace style as the main navigation, with destination titles in
 accessible labels rather than displayed alongside the arrows.
 Keep all writing centered between previous and next in both navigation rows,
 including the first and last essays. The navigation rows have no rules.
-Writing rows show the author's date and a quiet category: magazine essay,
-essay, or note. Order the list and local reading navigation oldest first by
-the supplied dates. Preserve the circa qualifier on The Strange Wilderness.
+Writing rows show the author's date followed by a quiet category: magazine
+essay, essay, or note. Order the list and local reading navigation oldest first
+by the supplied dates. The Strange Wilderness shows May 12, 2024 on the index;
+its reading page retains the circa qualifier. Repeat date/category metadata
+quietly beneath reading titles. The Hacker Perspective has a local reading
+page with its full text and an original-publication link near its title.

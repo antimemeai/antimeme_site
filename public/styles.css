@@ -216,6 +216,30 @@ a:focus-visible {
   margin-block: 40px 32px;
 }
 
+.essay-meta,
+.essay-origin {
+  margin: 16px 0 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.essay-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.essay-origin {
+  margin-top: 8px;
+}
+
+.essay-origin a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
 .essay-body {
   font-size: 19px;
   line-height: 1.75;

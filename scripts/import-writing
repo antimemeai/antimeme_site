@@ -28,13 +28,12 @@ ESSAYS = (
     ("anchor-to-the-invariants", "anchor_to_the_invariants_meta.odt",
      "/pulse/anchor-invariants-patrick-beam-ppife"),
 )
-# Separate publications link to their original edition; local essays use the
-# site's reading navigation. Dates are at the precision actually known.
-PUBLICATIONS = (
-    ("The Hacker Perspective",
-     "https://archive.org/details/2600-volume-40-issue-1/page/n13/mode/2up",
-     "Spring 2023", "2023", "2600 · Vol. 40, No. 1", "magazine essay"),
-)
+# Original-publication credits supplement the local reading pages.
+PUBLICATION_CREDITS = {
+    "the-hacker-perspective": (
+        "https://archive.org/details/2600-volume-40-issue-1/page/n13/mode/2up",
+        "2600 40:1 — The Hacker Perspective", "2600 · Vol. 40, No. 1"),
+}
 ESSAY_DATES = {
     "intuition-in-a-data-driven-world": ("May 28, 2024", "2024-05-28"),
     "enter-the-intersubjective": ("June 2, 2024", "2024-06-02"),
@@ -44,6 +43,8 @@ ESSAY_DATES = {
 # These articles are edited directly as HTML. Reimports retain their article
 # markup while refreshing the shared page template, index, and neighbor links.
 HTML_ESSAYS = (
+    ("the-hacker-perspective", "The Hacker Perspective", "Spring 2023", "2023",
+     "A personal account of curiosity, hacking, and keeping the magic alive. Originally published in 2600, Vol. 40, No. 1.", "magazine essay"),
     ("jsmntl-solo-bot-coding", "JSMNTL: Solo Bot Coding", "June 28, 2026", "2026-06-28",
      "JSMNTL: a personal practice for coding with LLMs, grounded in research, planning, testing, and review.", "essay"),
     ("the-strange-wilderness", "The Strange Wilderness", "c. May 12, 2024", "2024-05-12",
@@ -190,6 +191,10 @@ def page(title, description, main, current="page"):
 
 
 def article_page(title, description, article, index, entries):
+    # Refresh only the shared header; directly edited article bodies stay intact.
+    start = article.index('            <header class="essay-heading">')
+    end = article.index('</header>', start) + len('</header>')
+    article = article[:start] + reading_heading(entries[index]) + article[end:]
     main = ('      <main id="main" tabindex="-1">\n        <div class="reading">\n'
             + neighbors(index, entries, "top") + '\n' + article + '\n'
             + neighbors(index, entries, "bottom") + '\n        </div>\n')
@@ -217,18 +222,32 @@ def neighbors(index, entries, position):
             + "\n".join(links) + "\n          </nav>")
 
 
-def listing_item(title, href, date, year=None, publication=None, category="essay"):
-    if year:
-        date_html = f'<time class="writing-date" datetime="{escape(year, quote=True)}">{escape(date)}</time>'
-    else:
-        date_html = (f'<span class="writing-date" aria-label="Approximate writing date: '
-                     f'{escape(date, quote=True)}">{escape(date)}</span>')
+def metadata(date, date_value, category):
+    return (f'<time class="writing-date" datetime="{escape(date_value, quote=True)}">{escape(date)}</time>'
+            f' <span aria-hidden="true">·</span> '
+            f'<span class="writing-category">{escape(category)}</span>')
+
+
+def reading_heading(entry):
+    slug, title, date, date_value, _, category = entry
+    credit = ""
+    if slug in PUBLICATION_CREDITS:
+        url, label, _ = PUBLICATION_CREDITS[slug]
+        credit = (f'              <p class="essay-origin">Originally published in '
+                  f'<a href="{escape(url, quote=True)}">{escape(label)}</a>.</p>\n')
+    return ('            <header class="essay-heading">\n'
+            f'              <h1>{escape(title)}</h1>\n'
+            f'              <p class="essay-meta">{metadata(date, date_value, category)}</p>\n'
+            + credit + '            </header>')
+
+
+def listing_item(title, href, date, date_value, publication=None, category="essay"):
     note = (f'                <span class="writing-publication">{escape(publication)}</span>\n'
             if publication else "")
     return (f'            <li><a href="{escape(href, quote=True)}">\n'
             f'                <span class="writing-title">{escape(title)}</span>\n'
-            f'                <span class="writing-meta"><span class="writing-category">{escape(category)}</span>'
-            f' <span aria-hidden="true">·</span> {date_html}</span>\n' + note + '            </a></li>')
+            f'                <span class="writing-meta">{metadata(date.removeprefix("c. "), date_value, category)}</span>\n'
+            + note + '            </a></li>')
 
 
 def main():
@@ -254,9 +273,10 @@ def main():
         articles.append(source[start:end])
     entries, articles = zip(*sorted(zip(entries, articles), key=lambda item: item[0][3]))
     items = "\n".join(
-        [listing_item(*publication) for publication in PUBLICATIONS]
-        + [listing_item(title, f"/writing/{slug}/", date, year, category=category)
-           for slug, title, date, year, _, category in entries]
+        listing_item(title, f"/writing/{slug}/", date, date_value,
+                     publication=PUBLICATION_CREDITS[slug][2] if slug in PUBLICATION_CREDITS else None,
+                     category=category)
+        for slug, title, date, date_value, _, category in entries
     )
     listing = ('      <main id="main" class="writing-main" tabindex="-1">\n'
                '        <section class="intro" aria-labelledby="intro-heading">\n'
