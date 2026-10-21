@@ -170,7 +170,10 @@ def page(title, description, main, current="page"):
 
 def neighbors(index, documents, position):
     links = []
-    for offset, label, arrow in ((-1, "previous", "←"), (1, "next", "→")):
+    for offset, label, arrow in ((-1, "previous", "←"), (0, "index", ""), (1, "next", "→")):
+        if offset == 0:
+            links.append('            <a class="essay-index" href="/writing/">all writing</a>')
+            continue
         neighbor = index + offset
         if 0 <= neighbor < len(ESSAYS):
             slug = ESSAYS[neighbor][0]
@@ -206,7 +209,6 @@ def main():
     for i, ((slug, _, _), doc) in enumerate(zip(ESSAYS, documents)):
         body = "\n".join("              " + block for el in doc.body if (block := doc.block(el)))
         main = ('      <main id="main" tabindex="-1">\n        <div class="reading">\n'
-                '          <a class="back-link" href="/writing/">all writing</a>\n'
                 + neighbors(i, documents, "top") + '\n          <article>\n'
                 + f'            <header class="essay-heading"><h1>{escape(doc.title)}</h1></header>\n'
                 + '            <div class="essay-body">\n' + body

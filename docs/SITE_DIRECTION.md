@@ -57,3 +57,5 @@ subsequently requested removal of all preamble content except the essay titles:
 start directly at the opening substantive section. Previous/next links use the
 same quiet monospace style as the main navigation, with destination titles in
 accessible labels rather than displayed alongside the arrows.
+Keep all writing centered between previous and next in both navigation rows,
+including the first and last essays. The navigation rows have no rules.

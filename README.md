@@ -45,6 +45,8 @@ Each essay starts at its first substantive section beneath the title; the
 old summaries, disclaimers, welcomes, and released-essay lists are omitted.
 The previous/next links share the main navigation's small monospace type and
 hover underline. Destination titles remain in their accessible labels.
+Both navigation rows put all writing in the center between previous and next,
+even when a neighboring link is absent. These rows have no horizontal rules.
 
 Edit these HTML files directly. When adding an essay, update the title list
 and the neighboring essays' navigation at both ends. Keep shared navigation
