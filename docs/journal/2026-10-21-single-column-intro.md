@@ -19,3 +19,10 @@ existing responsive columns, and there is no horizontal overflow. Inspected
 phone and desktop screenshots. The current copy makes the desktop page 962px
 tall at 1440×900; it scrolls naturally pending the operator's simplification.
 git diff --check passes. Stylesheet version 037f83c6cf5f.
+
+Published content commit eea92fd. The Git push again did not enqueue a Pages
+deployment, so used the existing authenticated Cloudflare API to deploy the
+same master commit without changing project settings. Deployment
+25cdefa9-1474-419b-bcdf-75b92de31e21 succeeded. Verified the production homepage
+loads the new stylesheet and that the served CSS contains the single-column
+grid and responsive 20–24px type. Temporary preview browser/server closed.
