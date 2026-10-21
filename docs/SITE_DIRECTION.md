@@ -28,15 +28,17 @@ story. Private calibration and personal ambitions are not public copy.
 
 ## Space and implementation
 
-One screen where the viewport has sufficient room. New material must earn
-space, not automatically lengthen the page. Small viewports and enlarged text
-may scroll; never hide content to force a fit. Keep the static wordmark, local
+New material must earn space. The homepage now scrolls naturally to give its
+large service rows room. Other restrained pages fit one screen where the
+viewport has sufficient room; never hide content to force a fit. Keep the static wordmark, local
 fonts, plain HTML/CSS, and keyboard access. No animations, analytics, badges,
 frameworks, or build step.
 
-The homepage introduction uses one left-aligned column with larger 20–24px
-text, above the existing services grid. This is a layout experiment requested
-on 2026-10-21; preserve the copy for the operator to simplify next.
+The homepage introduction joins the existing clauses into one flowing,
+slightly feverish preamble in a single column. Below it, six large full-width
+service rows act as horizontal anchors: number, prominent title, supporting
+sentence. On phones the sentence sits beneath the title. This supersedes the
+earlier stacked-clause introduction and service-card grid experiment.
 
 The operator subsequently requested top navigation and a separate open-source
 page. Keep it a short software page, not a resume: concrete descriptions,

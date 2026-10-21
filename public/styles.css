@@ -359,16 +359,6 @@ main {
   padding-block: clamp(36px, 5vw, 56px);
 }
 
-.intro-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  align-items: start;
-  gap: 20px;
-  max-width: 52ch;
-  margin-top: 36px;
-  font-size: clamp(20px, 2vw, 24px);
-}
-
 h1 {
   margin: 0;
   font-size: clamp(36px, 4vw, 56px);
@@ -377,42 +367,20 @@ h1 {
   letter-spacing: -0.04em;
 }
 
-.intro-promise,
-.intro-note {
-  max-width: 52ch;
-  margin: 0;
-  font-size: inherit;
-  line-height: 1.55;
-  letter-spacing: -0.015em;
-}
-
-.team-note {
-  max-width: 52ch;
-  margin: 6px 0 0;
-  font-size: inherit;
-  line-height: 1.55;
-}
-
-.intro-context,
-.team-background {
-  display: block;
-  margin-top: 6px;
-  font-size: inherit;
-  line-height: 1.55;
-  letter-spacing: -0.015em;
-}
-
-.local-note {
-  display: block;
-  margin-top: 6px;
+.intro-preamble {
+  max-width: 62ch;
+  margin: 28px 0 0;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.5;
+  letter-spacing: -0.02em;
 }
 
 .inline-contact {
   display: inline-flex;
   align-items: baseline;
   gap: 8px;
-  margin-top: 6px;
-  font-size: inherit;
+  margin-top: 20px;
+  font-size: clamp(18px, 1.6vw, 20px);
   line-height: 1.55;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
@@ -516,19 +484,9 @@ h1 {
     padding-block: clamp(24px, 5svh, 56px);
   }
 
-  .intro-layout {
-    margin-top: clamp(18px, 3.6svh, 36px);
-  }
-
   .services {
     row-gap: clamp(18px, 3svh, 30px);
     margin-bottom: clamp(16px, 3svh, 32px);
-  }
-
-  /* Let the six-card homepage use spare height, not leave it below the grid. */
-  .services-fill {
-    flex: 1;
-    grid-auto-rows: 1fr;
   }
 
   .service {
@@ -568,19 +526,6 @@ h1 {
     padding-bottom: clamp(24px, 3.3svh, 56px);
   }
 
-  .services-fill .service {
-    padding-top: calc(clamp(12px, 2svh, 19px) + 1svh);
-  }
-
-  .services-fill .service h2 {
-    font-size: 26px;
-    margin-bottom: 14px;
-  }
-
-  .services-fill .service p {
-    font-size: 17px;
-    line-height: 1.55;
-  }
 }
 
 @media (min-width: 601px) and (max-height: 850px) {
@@ -590,10 +535,6 @@ h1 {
 
   .intro {
     padding-block: 10px;
-  }
-
-  .intro-layout {
-    margin-top: 14px;
   }
 
   .contact {
@@ -618,10 +559,6 @@ h1 {
 
   .intro {
     padding-block: 8px;
-  }
-
-  .intro-layout {
-    margin-top: 12px;
   }
 
   .services {
@@ -689,12 +626,6 @@ h1 {
     font-size: clamp(32px, 8.5vw, 42px);
   }
 
-  .intro-layout {
-    grid-template-columns: 1fr;
-    gap: 22px;
-    margin-top: 30px;
-  }
-
   .services {
     grid-template-columns: 1fr;
     gap: 29px;
@@ -737,5 +668,55 @@ h1 {
   .colophon {
     padding-bottom: 20px;
     font-size: 9px;
+  }
+}
+
+/* Homepage services read as full-width anchors beneath the flowing preamble. */
+.services.service-rows {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin-bottom: 0;
+}
+
+.service-rows .service {
+  grid-template-columns: 40px minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: 24px;
+  padding-block: clamp(24px, 3vw, 36px);
+}
+
+.service-rows .service-number {
+  grid-row: auto;
+  padding-top: 0;
+}
+
+.service-rows .service h2 {
+  margin: 0;
+  font-size: clamp(30px, 3.2vw, 46px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+}
+
+.service-rows .service p {
+  grid-column: 3;
+  max-width: 42ch;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .service-rows .service {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 10px 16px;
+  }
+
+  .service-rows .service-number {
+    grid-row: span 2;
+  }
+
+  .service-rows .service p {
+    grid-column: 2;
+    font-size: 16px;
   }
 }

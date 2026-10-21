@@ -25,12 +25,12 @@ It updates the stylesheet URL on every page using a hash of the CSS, so a
 cached stylesheet cannot hide a new layout. This is an explicit edit command,
 not a build step.
 
-The restrained page is designed to fit on one screen when the viewport has
-sufficient room. Spacing responds to viewport height on desktop and tablets.
-Phones, small windows, and enlarged text may scroll; content is never clipped
-to force a fit. Services use three columns on desktop, two on tablets, and one
-on phones; text wraps without forced line breaks. The four-entry open-source
-page uses two columns above phone widths and one on phones.
+The homepage uses one flowing preamble followed by six full-width service
+rows with large titles. Descriptions sit alongside titles on desktop/tablet
+and beneath them on phones. The page scrolls naturally to give those rows
+room. The four-entry open-source page retains two columns above phone widths
+and one on phones; it fits one screen where the viewport has sufficient room.
+Text wraps without forced line breaks or clipping.
 A keyboard skip link leads directly to the main content.
 
 ## Writing
@@ -125,6 +125,12 @@ Use these settings:
 Select **Save and Deploy**. There is no build: Pages serves `public/` directly.
 Subsequent pushes to `master` deploy automatically. Only `public/` is published;
 repository documentation and issue-tracker files stay outside the site.
+
+If a push does not enqueue a deployment, run `python3 scripts/deploy-pages`.
+It deploys the already-pushed master commit through the existing antimeme-site
+project and waits for production success. It uses `CLOUDFLARE_API_TOKEN` and
+`CLOUDFLARE_ACCOUNT_ID`, or the existing workspace `.env` keys `cf_api_key` and
+`cf_account_id`, without printing them. It does not change project settings.
 
 Open the resulting `*.pages.dev` URL and verify the page, fonts, and both email
 links. Then open the project's **Custom domains → Set up a domain** and enter

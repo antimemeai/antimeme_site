@@ -1,0 +1,82 @@
+#!/usr/bin/env python3
+"""Deploy the pushed master commit through the existing Cloudflare Pages project."""
+
+import json
+import os
+from pathlib import Path
+import re
+import subprocess
+import time
+from urllib.error import HTTPError
+from urllib.request import Request, urlopen
+import uuid
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def git(*args):
+    return subprocess.check_output(["git", *args], cwd=ROOT, text=True).strip()
+
+
+def main():
+    sha = git("rev-parse", "HEAD")
+    if git("branch", "--show-current") != "master":
+        raise SystemExit("Run from the production master branch.")
+    if git("ls-remote", "origin", "refs/heads/master").split()[0] != sha:
+        raise SystemExit("Push master before deploying.")
+    if git("diff", "HEAD", "--", "public"):
+        raise SystemExit("Commit and push public changes before deploying.")
+
+    # Read values without evaluating shell code or printing credentials.
+    values = {}
+    source = ROOT.parent / ".env"
+    if source.is_file():
+        for line in source.read_text().splitlines():
+            match = re.match(r"\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*?)\s*$", line)
+            if match:
+                values[match[1]] = match[2].strip("\"'")
+    token = os.environ.get("CLOUDFLARE_API_TOKEN") or values.get("cf_api_key")
+    account = os.environ.get("CLOUDFLARE_ACCOUNT_ID") or values.get("cf_account_id")
+    if not token or not account:
+        raise SystemExit("Cloudflare token and account ID are required.")
+    base = f"https://api.cloudflare.com/client/v4/accounts/{account}/pages/projects/antimeme-site/deployments"
+
+    def api(path="", fields=None):
+        headers = {"Authorization": "Bearer " + token}
+        body = None
+        if fields is not None:
+            boundary = "antimeme-" + uuid.uuid4().hex
+            body = ("".join(f'--{boundary}\r\nContent-Disposition: form-data; name="{key}"\r\n\r\n{value}\r\n'
+                            for key, value in fields.items()) + f"--{boundary}--\r\n").encode()
+            headers["Content-Type"] = "multipart/form-data; boundary=" + boundary
+        try:
+            with urlopen(Request(base + path, data=body, headers=headers), timeout=20) as response:
+                payload = json.load(response)
+        except HTTPError as error:
+            raise SystemExit(f"Cloudflare returned HTTP {error.code}.") from None
+        if not payload.get("success"):
+            raise SystemExit("Cloudflare rejected the deployment request.")
+        return payload["result"]
+
+    existing = [d for d in api("?per_page=5")
+                if d.get("environment") == "production"
+                and d.get("deployment_trigger", {}).get("metadata", {}).get("commit_hash") == sha]
+    deployment = existing[0] if existing else api(fields={"branch": "master", "commit_hash": sha, "commit_dirty": "false"})
+    print(f"Deployment {deployment['id']} for {sha}", flush=True)
+    for _ in range(24):
+        current = api("/" + deployment["id"])
+        stage = current["latest_stage"]
+        print(stage["name"], stage["status"], flush=True)
+        if stage["status"] in ("failure", "canceled"):
+            raise SystemExit("Deployment did not succeed.")
+        if stage["name"] == "deploy" and stage["status"] == "success":
+            if current["environment"] != "production" or current["deployment_trigger"]["metadata"]["commit_hash"] != sha:
+                raise SystemExit("Deployment does not match the requested production commit.")
+            return
+        time.sleep(5)
+    raise SystemExit("Deployment is still running; inspect it in Cloudflare Pages.")
+
+
+if __name__ == "__main__":
+    main()
