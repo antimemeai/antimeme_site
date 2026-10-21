@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f7f2">
+    <meta name="description" content="Wherein I argue that one way to detect and act against unknown unknowns is to center on a very rigorous understanding of what you do know--product surface, market, customers, company, and so forth. And that this is a prerequisite for getting much of anything out of my ideas in your own work.">
+    <title>Anchor to the Invariants — antimeme.ai</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">skip to content</a>
+    <div class="page">
+      <header class="masthead">
+        <a class="wordmark" href="/" aria-label="antimeme.ai home">antimeme.ai<span class="cursor" aria-hidden="true">_</span></a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="/">services</a>
+          <a href="/open-source/">open source</a>
+          <a href="/writing/" aria-current="location">writing</a>
+        </nav>
+      </header>
+
+      <main id="main" tabindex="-1">
+        <div class="reading">
+          <a class="back-link" href="/writing/">all writing</a>
+          <nav class="essay-nav" aria-label="Essay navigation (top)">
+            <a class="essay-previous" href="/writing/enter-the-intersubjective/" rel="prev">
+              <span class="essay-direction">← previous</span>
+              <span>Enter the Intersubjective: Wilfrid Sellars as Operations Theorist</span>
+            </a>
+          </nav>
+          <article>
+            <header class="essay-heading"><h1>Anchor to the Invariants</h1></header>
+            <div class="essay-body">
+              <p><strong>tl;dr: </strong>Wherein I argue that one way to detect and act against unknown unknowns is to center on a <strong><em>very</em></strong> rigorous understanding of what you do know--product surface, market, customers, company, and so forth. And that this is a prerequisite for getting much of anything out of my ideas in your own work.</p>
+              <p><strong>Disclaimer:</strong><em> The following are my personal views and not those of my present or any previous employer. I speak neither for my employer, nor for any of my amazing colleagues, partners, team members, or leaders. Any errors, omissions, misses, mistakes, and general foolishness are mine alone. P.</em></p>
+              <p><strong><em>No corporations were harmed in the writing of this essay.</em></strong></p>
+              <hr>
+              <p>Welcome to the fourth essay leading up to <em>Seeing in a Strange Wilderness</em>! For context on the project that this piece is a part of, check out <a href="https://www.linkedin.com/pulse/road-red-queen-patrick-beam-pim8e">Road to the Red Queen</a>.</p>
+              <p><strong>Released Essays:</strong></p>
+              <p><a href="https://www.linkedin.com/pulse/road-red-queen-patrick-beam-pim8e">Road to the Red Queen</a></p>
+              <p><a href="/writing/intuition-in-a-data-driven-world/">Intuition in a Data-Driven World</a></p>
+              <p><a href="/writing/from-the-cell-to-the-atom-bomb/">From the Cell to the Atom Bomb</a></p>
+              <p><a href="/writing/enter-the-intersubjective/">Enter the Intersubjective</a></p>
+              <hr>
+              <h2>Hampered Innovation--A Most Common Pitfall</h2>
+              <p>Many of you reading this will have lived some version of the following story, some of you many times: You&#x27;re on a product or service team and word comes down that it&#x27;s time to prioritize adopting the new shiny thing. Could be anything--some new experimentation framework for testing surface changes, building a new high-tech feature (LLM furniture shopping in rural PA, anyone?), whatever.</p>
+              <p>The team gets fired up, implementation, integration, delivery. The glorious future is here. But after the sugar rush from the celebratory sheet-cake wears off, your metrics are slipping. Or have changed in an unexpected way. Maybe complaints are up, or even adoption and customer satisfaction are. Good, bad, ugly--it doesn&#x27;t much matter, the team can&#x27;t explain the delta. There are many flavors of this, some include:</p>
+              <ul>
+<li>
+<p>Customers seem happier but aren&#x27;t using the new feature the way we intended.</p>
+</li>
+<li>
+<p>Customers are upset despite everything working precisely as we expected it to.</p>
+</li>
+<li>
+<p>Our new experimental data is accurate and yet changes made in response are driving metrics in the wrong direction.</p>
+</li>
+<li>
+<p>A novel system or security incident strikes, while it&#x27;s obvious something bad is happening, tracking down <em>what</em> proves difficult.</p>
+</li>
+</ul>
+              <p>The metapoint is that one of the most common impediments to innovation is making changes--even very good ones--without having a sufficiently mature understanding of the space to evaluate their impact.</p>
+              <p>In this essay, we&#x27;re diving into how knowing yourself--customers, company, team, domain, system, product, market, etc.--with rigor and discipline both protects you from some harms and empowers advancing the plot for your business in the context of unknown unknowns.</p>
+              <p>This is non-negotiable table stakes for farming anything of value out of <em>Seeing in a Strange Wilderness</em>.</p>
+              <h3>Brief Remark on Tension + Acknowledging Objections</h3>
+              <p>Some readers are bristling at this point, suspicious that rigorous, disciplined self-knowledge detracts from forward progress in a game where you either evolve or die. Or perhaps that by canonizing a powerful impulse for operational excellence toward such self-knowledge, it can become a club used by entrenched middle-managers to protect kingdoms and stifle innovation even further.</p>
+              <p>If you&#x27;re in either of those camps--you&#x27;re right. What I advocate for here can be very dangerous if left unchecked by an implementing organization. Ensuring that the right balance is struck on tensions like this is a core function of leadership--a topic I look forward to treating specifically in a later essay.</p>
+              <p>For now, let it suffice that cultural tradeoffs are <strong><em>much</em></strong> heavier than system tradeoffs--requiring judgment calls fueled by conviction, courage, and tenacity in leaders. The meta-metapoint (we&#x27;ll halt the regression here for now!) is that there is no system or magic algorithm for effectively driving organizations. Everything is pathological at the wrong dose and all ingredients react with each other, sometimes in catastrophic ways.</p>
+              <p>&lt;/tangent&gt;</p>
+              <h2>Operational Excellence as Reality Anchor</h2>
+              <p>The most common take on operations excellence that I encounter is some flavor of &quot;we&#x27;ve got some metrics that tell us how we did, and some of them have alarms to trigger a response if something goes wrong.&quot; Sure, can&#x27;t argue very well against the utility of that. Where this falls short is in that that is the whole story--historical data and some reaction triggers.</p>
+              <p>This is an impoverished stance, ops can give you so much more.</p>
+              <h3>Company Meets World Where Future Becomes Present</h3>
+              <p>Before we can fruitfully dive into a richer view of operations, it&#x27;s necessary to sketch out exactly what I mean by the &quot;self&quot; here. There&#x27;s a seductive impulse toward forgetting that even a company facing annihilation due to drastic change--think a firm that doubled down on mass-market horse products in the face of the Model T--has invariants.</p>
+              <p>This especially bears explicit treatment today--many folks are overwhelmed by a sense of rapid changes in the world. Remember that despite all of the excitement, there is much that isn&#x27;t changing--at least not yet. This is the foundation of evolving to meet the present.</p>
+              <p>Some variation of the following is relevant in your domain:</p>
+              <ul>
+<li>
+<p><strong>Company</strong> (or organization). History, culture, policies, brand, narrative, placement, etc.--the stuff that comprises the body without flesh giving shape to everything else.</p>
+</li>
+<li>
+<p><strong>Customers</strong>. Buyers, users, recipients, clients, partners, etc.--whoever it is transferring money or some other resource into your world in exchange for some value that you provide.</p>
+</li>
+<li>
+<p><strong>Product/Service Surface</strong>. The details of what you actually offer to your customers.</p>
+</li>
+<li>
+<p><strong>Systems</strong>. Machines, information resources, factories, or other structures by which the company operates products/services to provide value to customers.</p>
+</li>
+<li>
+<p><strong>Processes</strong>. Interfaces between your people and your systems taken holistically to be the meat of what actually happens during the course of operating in your space.</p>
+</li>
+<li>
+<p><strong>People</strong>. Your employees, leadership, vendors, counsel, contractors, etc.--the human beings who use your processes to operate your systems and so forth.</p>
+</li>
+</ul>
+              <p>Categorically speaking each of these exists in some fashion for what you&#x27;re doing until you cease doing it. This is the invariant part--even where all employees quit at once, people remain a first-class concern. All firms have the opportunity to deeply understand, if not actually control, each of these aspects of their operations.</p>
+              <p>Contrast the above with:</p>
+              <ul>
+<li>
+<p>Your legal/regulatory landscape,</p>
+</li>
+<li>
+<p>Introduction of disruptive technologies,</p>
+</li>
+<li>
+<p>Social/political upheaval rewriting the fabric upon which you do business ,</p>
+</li>
+<li>
+<p>Black swan events,</p>
+</li>
+</ul>
+              <p>And similar--in opposition to &quot;self&quot; let&#x27;s call these &quot;other&quot;.</p>
+              <p>The &quot;other&quot;, the waves in the art above, ultimately demands reaction by its character. The &quot;self&quot;, however, can engender proactive action through deep understanding; not all ships pilot the same way. Notice that the ship doesn&#x27;t make sense without the waves--solipsism is not the answer!</p>
+              <p>(Neither is nihilism, but we&#x27;ll deal with that in a later part of this series.)</p>
+              <p>Now that we have a fuzzy line between &quot;self&quot; and &quot;other&quot;, let&#x27;s get to the point: using mastery of the &quot;self&quot; to detect and proactively respond to aspects of the &quot;other&quot; not easily understood by direct analysis.</p>
+              <h2>Know the &quot;Self&quot;: Rigorous, Mature, Improving</h2>
+              <p>So practically speaking, what does a high-degree of &quot;self&quot;-knowledge look like?</p>
+              <p>Let&#x27;s start by sketching something like an ideal state--and acknowledging that we&#x27;re not going to achieve it, which is fine. Operations demand continuous improvement, and face the full spectrum of social and physical idiosyncrasies of reality. This isn&#x27;t a solvable problem--it&#x27;s all about achieving a defensible baseline from which you can work, improve, and evolve without going under.</p>
+              <p>I use examples derived from my experience doing tech ops on large Internet platforms, however the analogues to other domains are rich indeed.</p>
+              <p><strong>Abstract Map</strong>. Have developed, tested, and established mechanisms for adjusting as comprehensive a map of the levels of abstraction present in your domain as possible. For a product team, that list might look something like:</p>
+              <ul>
+<li>
+<p>Network</p>
+</li>
+<li>
+<p>Infrastructure</p>
+</li>
+<li>
+<p>Data Flow</p>
+</li>
+<li>
+<p>Application</p>
+</li>
+<li>
+<p>User Journeys</p>
+</li>
+<li>
+<p>Corporate Outcomes (e.g. Money Flow)</p>
+</li>
+<li>
+<p>Cross-Product Coherence</p>
+</li>
+</ul>
+              <p><strong>First-Order Metrics</strong>. For every level of abstraction relevant, capture metrics directly at their source. &quot;First-order&quot; here means not derived from other values. A few examples, continuing the above:</p>
+              <ul>
+<li>
+<p>Latency</p>
+</li>
+<li>
+<p>CPU/memory load for the nodes</p>
+</li>
+<li>
+<p>Read/write error rate</p>
+</li>
+<li>
+<p>Uptime heartbeat</p>
+</li>
+<li>
+<p>Login success rate</p>
+</li>
+<li>
+<p>Naive revenue from successful checkouts</p>
+</li>
+<li>
+<p>Continue rate for users entering funnel from a sister product surface</p>
+</li>
+</ul>
+              <p><strong>Nth-Order Metrics</strong>. Layers of derivative metrics building upon first-order data. These are your statistics, calculations, compositions, and so forth--probably comprise the majority of your <em>information</em> but are <em>wholly</em> <em>dependent</em> on the first-order data to approximate anything like truth. Instead of specific examples, here&#x27;s my general take on mature Nth-Order Metrics:</p>
+              <p>Being able to take nearly any change in system or flow state and draw a bright, clean, easy-to-understand line from that change to other changes in the overall picture. For instance, how much revenue is lost on your e-commerce platform when latency increases by 1.5%? Answering that in the ideal state is not a research project but a button click. Where that isn&#x27;t possible is the exception, not the rule--and is therefore a trigger for human investigation.</p>
+              <p>Additionally, the baselines for every metric at every level of abstraction are well-understood--as are the error statements for all of them. Operators, analysts, and leaders across the space can easily determine whether a fluctuation in one metric is explainable by changes in others or not. You end up either with a closed epistemic loop or a heuristic pointing to (likely) fruitful areas to begin an investigation.</p>
+              <p><strong>Information &amp; Intuition</strong>. The matrix of metrics in our ideal state then acts to minimize the attention paid to matters of little consequence and the time it takes for attention to fall on interesting or grave events. The team(s) spend time during every ops cycle disconfirming their trust in such minimization and adjusting accordingly.</p>
+              <p>We end up with a highly effective quantification at every level of abstracted that pushes human attention where it is most useful--all the while not falling into complacency by ensuring that the matrix is sanity checked and tested by people on a regular basis for both quantitative and qualitative reasons.</p>
+              <p>Finally, couch all of the above in something like the following:</p>
+              <ul>
+<li>
+<p>Interrupted telemetry, beyond some very low threshold, wakes someone up 24/7 365. Fluctuations and perturbations below the threshold are investigated by on call staff during lulls in the action.</p>
+</li>
+<li>
+<p>Metrics reviews, operational readiness reviews (Amazon-style, details in another post sometime), and post-incident analysis are canonized as first-class cultural rituals AND as part of the blessed work celebrated in both performance reviews and promotion packets.</p>
+</li>
+<li>
+<p>Cross-functional leadership works to maintain a common language for interpreting metrics, intervenes to restore the common view when skew arises, and takes very seriously any intuition that something is wrong.</p>
+</li>
+</ul>
+              <p>Lovely state of affairs to aspire to! Enough idealism, let&#x27;s get back to the surly bonds of Earth.</p>
+              <h3>The Dweller</h3>
+              <p>Regardless of maturity or the particular warts of your specific context (we all have them), the key moment in the ideal state above is <strong>when you can&#x27;t explain, with what you have, a change that you&#x27;re seeing</strong>. We have to be careful with &quot;explain&quot; here--I specifically mean <em>robustly</em> explain, with quantitative and qualitative evidence, the connection between a change and other world-state that is sufficient to act on at that time.</p>
+              <p>Many organizations have data scientists, data analysts, operations analysts, and similar deployed in various ways to support farming information and scaffolding decisions. I&#x27;ve developed a specific flavor of such a role that I find to be tremendously useful in epistemically-fraught, high-complexity, difficult spaces--such as trust &amp; safety, security, or marketing.</p>
+              <p>I (half-jokingly) call the role concept the Dweller, after the highly-skilled employees in cyberpunk fiction who focused on defense of a location in cyberspace. The Dweller does not belong to a centralized functional organization and is directly embedded within their domain of responsibility.</p>
+              <p>This person has quantitative depth (think statistical physicist, mathematician, or actuary), develops an fluency in their quantified domain, and serves as <em>the</em> subject matter expert for their team on metrics, baselines, and <em>how it feels as the numbers change</em>.</p>
+              <p>When not investigating a gap in the matrix, the Dweller drives the group&#x27;s metrics review, works with leadership and operators to provide complex inputs as necessary, and oversees maintenance on dashboards, alarms, and other facets of the quantified domain.</p>
+              <p>I find that having a dedicated person, a sort of data-clergy to the data-lay staff if you will, to make the quantified domain their entire focus is tremendously useful. On call engineers and analysts have other responsibilities and incentives. The Dweller(s) maintain constant focus on baseline, changes, telemetry rot, examining little things for patterns over time, and generally developing a <em>feel</em> for your data and delta.</p>
+              <p>Such focus and depth uncovers threat and opportunity alike.</p>
+              <p>If you can afford it, having such a person or team greatly enhances your group&#x27;s potential for finding something novel in the &quot;other&quot; by sustaining mastery over the &quot;self&quot;. If you can&#x27;t, finding ways to engage your team in some of the Dweller activities, even on a start/stop or cyclical basis, can farm some of the benefits.</p>
+              <h2>Views of &quot;Self&quot; and &quot;Other&quot; In Symbiosis</h2>
+              <p>None of this is to say that those in your company studying the &quot;other&quot; aren&#x27;t an important piece of lifting the fog of war. My thesis here is that deep understanding of &quot;self&quot; can help shed light on aspects of the &quot;other&quot; that are resistant to analysis. Information about &quot;self&quot; and &quot;other&quot; flowing into each other--challenging, correcting, unstucking, inspiring, warning--starts approaching something like a realized, rich view of operations excellence.</p>
+              <p>Whether we understand the cause or not, change happens at every level of abstraction constantly. By going deep on the stuff that you <em>can see particularly clearly</em>, you may just notice tell-tales of change stemming <em>from sources you may not yet realize exist</em>. You are somewhere on this gradient already, I encourage you to find ways to push farther in your context.</p>
+              <h2>Finally, Ready for Shiny Things</h2>
+              <p>The degree to which you can achieve substantive and stable maturity along these lines is roughly the degree to which you can practically benefit from the tools, approach, and conceptual framework that I will detail in <em>Seeing in a Strange Wilderness</em>. There is no substitute for knowing your own house, even in fantastical worlds haunted by machine consciousness or in some <em>Gattaca</em>-esque future.</p>
+              <p>Merely knowing, however, is not enough--you must act.</p>
+            </div>
+          </article>
+          <nav class="essay-nav" aria-label="Essay navigation (bottom)">
+            <a class="essay-previous" href="/writing/enter-the-intersubjective/" rel="prev">
+              <span class="essay-direction">← previous</span>
+              <span>Enter the Intersubjective: Wilfrid Sellars as Operations Theorist</span>
+            </a>
+          </nav>
+        </div>
+      </main>
+
+      <footer class="colophon">
+        <span>antimeme is nomad science.</span>
+        <span>©2026 antimeme ai</span>
+      </footer>
+    </div>
+  </body>
+</html>

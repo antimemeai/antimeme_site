@@ -47,3 +47,9 @@ No service reclassification, hosting strategy, ownership statement, or
 licensing policy is adopted merely because the business note proposes it.
 Decide those separately with the operator. Do not remove concrete capabilities
 just to make the page look like a conventional consultancy.
+
+On 2026-10-21 the operator requested a Writing tab and a simple list of four
+recovered essays. Keep the index restrained. Essays use a readable text column
+and scroll naturally, with previous/next links at the top and bottom only
+where a neighbor exists. Preserve the original essay text and formatting;
+links between the imported essays point to their local pages.

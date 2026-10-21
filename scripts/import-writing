@@ -1,0 +1,212 @@
+#!/usr/bin/env python3
+"""Transcribe the four recovered ODT essays; public HTML stays directly editable."""
+
+import argparse
+from html import escape
+from pathlib import Path
+from urllib.parse import urlsplit
+from xml.etree import ElementTree as ET
+from zipfile import ZipFile
+
+
+ROOT = Path(__file__).resolve().parents[1]
+NS = {
+    "office": "urn:oasis:names:tc:opendocument:xmlns:office:1.0",
+    "text": "urn:oasis:names:tc:opendocument:xmlns:text:1.0",
+    "style": "urn:oasis:names:tc:opendocument:xmlns:style:1.0",
+    "fo": "urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0",
+    "xlink": "http://www.w3.org/1999/xlink",
+}
+# The reading order comes from the series introductions, not file timestamps.
+ESSAYS = (
+    ("intuition-in-a-data-driven-world", "intuition_in_a_data_driven_world_meta.odt",
+     "/pulse/intuition-data-driven-world-patrick-beam-sxgae"),
+    ("from-the-cell-to-the-atom-bomb", "from_the_cell_to_the_atom_bomb_meta.odt",
+     "/pulse/from-cell-atom-bomb-patrick-beam-bxmme"),
+    ("enter-the-intersubjective", "enter_the_intersubjective_meta.odt",
+     "/pulse/enter-intersubjective-wilfrid-sellars-operations-theorist-beam-fg16e"),
+    ("anchor-to-the-invariants", "anchor_to_the_invariants_meta.odt",
+     "/pulse/anchor-invariants-patrick-beam-ppife"),
+)
+DIAGRAM_ALT = (
+    "Extended evolution: regulation and niche construction interact through "
+    "internalization and externalization. Together they produce inventions; "
+    "natural selection turns selected inventions into innovations, which join "
+    "system history and feed back into the system."
+)
+
+
+def attr(prefix, name):
+    return "{" + NS[prefix] + "}" + name
+
+
+def local_link(url):
+    parsed = urlsplit(url)
+    if parsed.hostname in ("www.linkedin.com", "linkedin.com"):
+        for slug, _, original_path in ESSAYS:
+            if parsed.path.rstrip("/") == original_path:
+                return f"/writing/{slug}/"
+    return url
+
+
+class Document:
+    def __init__(self, source):
+        with ZipFile(source) as archive:
+            self.root = ET.fromstring(archive.read("content.xml"))
+            style_roots = (ET.fromstring(archive.read("styles.xml")), self.root)
+            self.styles = {
+                style.get(attr("style", "name")): style
+                for root in style_roots
+                for style in root.findall(".//style:style", NS)
+            }
+            self.images = {
+                name: archive.read(name) for name in archive.namelist()
+                if name.startswith("Pictures/") and not name.endswith("/")
+            }
+        self.body = self.root.find("office:body/office:text", NS)
+        self.title = next(
+            "".join(el.itertext()).strip() for el in self.body
+            if el.tag == attr("text", "h") and "".join(el.itertext()).strip()
+        )
+        self.description = next(
+            "".join(el.itertext()).strip().removeprefix("tl;dr: ")
+            for el in self.body if "".join(el.itertext()).strip().startswith("tl;dr:")
+        )
+
+    def style_chain(self, name):
+        while name in self.styles:
+            yield name, self.styles[name]
+            name = self.styles[name].get(attr("style", "parent-style-name"))
+
+    def inline(self, el):
+        result = escape(el.text or "")
+        for child in el:
+            kind = child.tag.rsplit("}", 1)[-1]
+            if kind == "s":
+                value = " " * int(child.get(attr("text", "c"), "1"))
+            elif kind == "tab":
+                value = " "
+            elif kind == "line-break":
+                value = "<br>"
+            elif kind in ("bookmark", "bookmark-start", "bookmark-end", "soft-page-break"):
+                value = ""
+            elif kind == "image":
+                original = child.get(attr("xlink", "href"))
+                destination = ROOT / "public/writing/evolution-diagram.jpg"
+                destination.write_bytes(self.images[original])
+                value = (f'<img src="/writing/evolution-diagram.jpg" '
+                         f'alt="{escape(DIAGRAM_ALT, quote=True)}" '
+                         'width="1167" height="473" loading="lazy">')
+            elif kind in ("a", "span", "frame"):
+                value = self.inline(child)
+                if kind == "a":
+                    href = escape(local_link(child.get(attr("xlink", "href"))), quote=True)
+                    value = f'<a href="{href}">{value}</a>'
+                if kind == "span":
+                    properties = {}
+                    for _, style in reversed(list(self.style_chain(child.get(attr("text", "style-name"))))):
+                        props = style.find("style:text-properties", NS)
+                        if props is not None:
+                            properties.update(props.attrib)
+                    if properties.get(attr("fo", "font-weight")) == "bold":
+                        value = f"<strong>{value}</strong>"
+                    if properties.get(attr("fo", "font-style")) == "italic":
+                        value = f"<em>{value}</em>"
+            else:
+                raise ValueError(f"Unrecognized inline element: {kind}")
+            result += value + escape(child.tail or "")
+        return result
+
+    def block(self, el):
+        kind = el.tag.rsplit("}", 1)[-1]
+        if kind == "sequence-decls":
+            return ""
+        if kind in ("list", "list-item"):
+            tag = "ul" if kind == "list" else "li"
+            return f"<{tag}>\n" + "\n".join(filter(None, map(self.block, el))) + f"\n</{tag}>"
+        if kind not in ("p", "h"):
+            raise ValueError(f"Unrecognized block element: {kind}")
+        styles = {name for name, _ in self.style_chain(el.get(attr("text", "style-name")))}
+        value = self.inline(el).strip()
+        if "Horizontal_20_Line" in styles:
+            return "<hr>"
+        if not value:
+            return ""
+        if kind == "h":
+            level = int(el.get(attr("text", "outline-level")))
+            if level == 1:
+                return ""  # The title is rendered once in the article header.
+            if self.title == "From the Cell to the Atom Bomb":
+                level = 2  # Its source uses h3 for top-level sections.
+            if value == "Released Essays:":
+                level = 2
+            return f"<h{level}>{value}</h{level}>"
+        if "Quotations" in styles:
+            return f"<blockquote><p>{value}</p></blockquote>"
+        return f"<p>{value}</p>"
+
+
+def page(title, description, main, current="page"):
+    source = (ROOT / "public/index.html").read_text()
+    prefix = source.split('      <main id="main"', 1)[0]
+    prefix = prefix.replace(
+        'href="/" aria-current="page"', 'href="/"'
+    ).replace('href="/writing/"', f'href="/writing/" aria-current="{current}"')
+    start = prefix.index('    <meta name="description"')
+    end = prefix.index('    <link rel="icon"', start)
+    prefix = (prefix[:start] + f'    <meta name="description" content="{escape(description, quote=True)}">\n'
+              + f"    <title>{escape(title)} — antimeme.ai</title>\n" + prefix[end:])
+    suffix = source.split("      </main>", 1)[1]
+    return prefix + main + "      </main>" + suffix
+
+
+def neighbors(index, documents, position):
+    links = []
+    for offset, label, arrow in ((-1, "previous", "←"), (1, "next", "→")):
+        neighbor = index + offset
+        if 0 <= neighbor < len(ESSAYS):
+            slug = ESSAYS[neighbor][0]
+            title = escape(documents[neighbor].title)
+            links.append(
+                f'            <a class="essay-{label}" href="/writing/{slug}/" rel="{"prev" if offset < 0 else "next"}">\n'
+                f'              <span class="essay-direction">{arrow + " previous" if offset < 0 else "next " + arrow}</span>\n'
+                f'              <span>{title}</span>\n            </a>'
+            )
+    return (f'          <nav class="essay-nav" aria-label="Essay navigation ({position})">\n'
+            + "\n".join(links) + "\n          </nav>")
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("source_directory", type=Path)
+    args = parser.parse_args()
+    documents = [Document(args.source_directory / name) for _, name, _ in ESSAYS]
+    destination = ROOT / "public/writing"
+    destination.mkdir(exist_ok=True)
+    items = "\n".join(
+        f'            <li><a href="/writing/{slug}/">{escape(doc.title)}</a></li>'
+        for (slug, _, _), doc in zip(ESSAYS, documents)
+    )
+    listing = ('      <main id="main" class="writing-main" tabindex="-1">\n'
+               '        <section class="intro" aria-labelledby="intro-heading">\n'
+               '          <h1 id="intro-heading">writing.</h1>\n        </section>\n'
+               '        <ul class="writing-list" aria-label="Writings">\n'
+               + items + '\n        </ul>\n')
+    (destination / "index.html").write_text(page("Writing", "Essays by Patrick Beam.", listing))
+    for i, ((slug, _, _), doc) in enumerate(zip(ESSAYS, documents)):
+        body = "\n".join("              " + block for el in doc.body if (block := doc.block(el)))
+        main = ('      <main id="main" tabindex="-1">\n        <div class="reading">\n'
+                '          <a class="back-link" href="/writing/">all writing</a>\n'
+                + neighbors(i, documents, "top") + '\n          <article>\n'
+                + f'            <header class="essay-heading"><h1>{escape(doc.title)}</h1></header>\n'
+                + '            <div class="essay-body">\n' + body
+                + '\n            </div>\n          </article>\n'
+                + neighbors(i, documents, "bottom") + '\n        </div>\n')
+        target = destination / slug
+        target.mkdir(exist_ok=True)
+        (target / "index.html").write_text(page(doc.title, doc.description, main, "location"))
+    print("Imported four essays and the writing index.")
+
+
+if __name__ == "__main__":
+    main()

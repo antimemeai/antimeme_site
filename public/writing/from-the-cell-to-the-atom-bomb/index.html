@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f7f2">
+    <meta name="description" content="Extended Evolution as an AR layer for narrative and action in the long-tail for operations, delivery, and organizational development. I first lay out what Extended Evolution is, then work through a few supporting ideas including genotype vs. phenotype stability, the character of history, and stigmergy. I conclude by contextualizing Extended Evolution on the Road to the Red Queen and arguing that it can be a primary workspace for folks embattled in seemingly intractable problems.">
+    <title>From the Cell to the Atom Bomb — antimeme.ai</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">skip to content</a>
+    <div class="page">
+      <header class="masthead">
+        <a class="wordmark" href="/" aria-label="antimeme.ai home">antimeme.ai<span class="cursor" aria-hidden="true">_</span></a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="/">services</a>
+          <a href="/open-source/">open source</a>
+          <a href="/writing/" aria-current="location">writing</a>
+        </nav>
+      </header>
+
+      <main id="main" tabindex="-1">
+        <div class="reading">
+          <a class="back-link" href="/writing/">all writing</a>
+          <nav class="essay-nav" aria-label="Essay navigation (top)">
+            <a class="essay-previous" href="/writing/intuition-in-a-data-driven-world/" rel="prev">
+              <span class="essay-direction">← previous</span>
+              <span>Intuition in a Data-Driven World</span>
+            </a>
+            <a class="essay-next" href="/writing/enter-the-intersubjective/" rel="next">
+              <span class="essay-direction">next →</span>
+              <span>Enter the Intersubjective: Wilfrid Sellars as Operations Theorist</span>
+            </a>
+          </nav>
+          <article>
+            <header class="essay-heading"><h1>From the Cell to the Atom Bomb</h1></header>
+            <div class="essay-body">
+              <p><strong>tl;dr: </strong>Extended Evolution as an AR layer for narrative and action in the long-tail for operations, delivery, and organizational development. I first lay out what Extended Evolution <em>is</em>, then work through a few supporting ideas including genotype vs. phenotype stability, the character of history, and stigmergy. I conclude by contextualizing Extended Evolution on the Road to the Red Queen and arguing that it can be a primary workspace for folks embattled in seemingly intractable problems.</p>
+              <p><strong>Disclaimer:</strong><em> The following are my personal views and not those of my present or any previous employer. I speak neither for my employer, nor for any of my amazing colleagues, partners, team members, or leaders. Any errors, omissions, misses, mistakes, and general foolishness are mine alone. P.</em></p>
+              <p><strong><em>No corporations were harmed in the writing of this essay.</em></strong></p>
+              <hr>
+              <p>Welcome to the second essay leading up to <em>Seeing in a Strange Wilderness</em>! For context on the project this piece is a part of, check out <a href="https://www.linkedin.com/pulse/road-red-queen-patrick-beam-pim8e">Road to the Red Queen</a>. I am indebted to the ideas of <a href="https://www.linkedin.com/in/ACoAAAGT4DIBHedCqiiI525LVD602mD14uBxBA0?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAGT4DIBHedCqiiI525LVD602mD14uBxBA0">Manfred Laubichler</a> for much of this piece and refer you to his work for real science [0].</p>
+              <p><strong>Released Essays:</strong></p>
+              <p><a href="https://www.linkedin.com/pulse/road-red-queen-patrick-beam-pim8e">Road to the Red Queen</a></p>
+              <p><a href="/writing/intuition-in-a-data-driven-world/">Intuition in a Data-Driven World</a></p>
+              <p><a href="/writing/enter-the-intersubjective/">Enter the Intersubjective</a></p>
+              <p><a href="/writing/anchor-to-the-invariants/">Anchor to the Invariants</a></p>
+              <h2>Dusting Off Darwin?</h2>
+              <p>The way I used to think about evolution was vaguely something like fish growing legs and eventually become people. A process so slow that it&#x27;s best to measure it using geologic time, an inexorable march of tiny additions building upon each other toward..nothing in particular?</p>
+              <p>[<strong>N.B.</strong> <em>Biologists and historians of science among you will be quick to point out the injustice I&#x27;m doing Darwin here--no argument.</em> P.]</p>
+              <p>Being that my interests revolve around operations and delivery in contexts wherein <em>milliseconds</em> can sometimes matter, evolution didn&#x27;t really enter my thinking. I was not <em>not</em> interested in it, it just never meaningfully came up. That is, until I was faced with problems of the kind that <em>Seeing in a Strange Wilderness</em> centers on treating.</p>
+              <h2>A Roundabout Road</h2>
+              <p>Some time ago, I started looking into what &quot;complexity science&quot; might do for me as a leader facing difficult problems on a vast scale. Like many, I had read the Gleick&#x27;s <em>Chaos</em>, played around with the logistic equation, and marveled at slime mold mapping Tokyo&#x27;s subway system. None of these things, however, gave me any purchase on how to &quot;do complexity&quot;, let alone whether doing so might be useful.</p>
+              <p>Not one to give up, I kept digging. Evolution kept popping up while I did, and not always in the kind of glacial stodgy way I had seen it before. Eventually I came up with enough background that &quot;doing complexity&quot; didn&#x27;t seem impossible anymore (and ended up in grad school for it, a different story), and evolution was part of that.</p>
+              <p>To make sense of all this, unsurprisingly, we need a different account of evolution than the one, you, like me, probably got in high school.</p>
+              <h2>Extended Evolution</h2>
+              <p>What Laubichler calls Extended Evolution, is in some sense, a generally applicable, biologically-inspired model for generating <em>inventions</em>. These inventions are then tested by a reward function, say, <em>natural selection</em>. Those that meet the threshold become <em>innovations</em>. Innovations persist across time, becoming part of the evolutionary record, or history, of a thing.</p>
+              <p>The literature on this is vast and rich, and doing the science proper justice is far out of scope in this forum (and my abilities). Instead, I&#x27;ll try to be only slightly abusive to the ideas and sketch how they work just enough that we can move on toward practical matters of application to technical and management concerns. Here&#x27;s a sketch:</p>
+              <p><img src="/writing/evolution-diagram.jpg" alt="Extended evolution: regulation and niche construction interact through internalization and externalization. Together they produce inventions; natural selection turns selected inventions into innovations, which join system history and feed back into the system." width="1167" height="473" loading="lazy"></p>
+              <p>Here let&#x27;s think about <strong>regulation</strong> as the internal controls of a system, organism, organization, whatever. <strong>Niche construction</strong> is how our system changes its environment--both intentionally and not. Applied regulation results in <strong>externalization</strong>, that is, changing of the environment. The changed environment, in turn, results in <strong>internalization</strong>, that is, incorporating feedback from the world that alters regulation.</p>
+              <p>This cycle produces variance, which we&#x27;ll call <strong>invention</strong> here. Inventions are just doing/being/having something different than before. Some are good, more on that in a moment, others are not--ranging from no real impact to causing system ruin. Zooming out, the larger context of the system imposes various fitness criteria, against which inventions are tested.</p>
+              <p>The key dynamic of this account of evolution is that systems have agency, and that the environment has impact all within a given &quot;generation&quot;. Geologic timescale no longer required.</p>
+              <p>This is <strong>natural selection</strong>, and does work the same way they described it in high school. It&#x27;s worth pointing out, however, that the fitness criteria <em>change</em>, sometimes as a result of the action of an organism or system. In some sense the goal is always the same: does this invention make the system <em>better</em>, but the definition of <em>better</em> is in flux. We call those inventions that pass the test, and thereby stick around, <em>innovations</em>.</p>
+              <p>Innovations pile up into the system&#x27;s evolutionary record, or history, and the process continues until the system ends (or the world does, I suppose, but that hasn&#x27;t happened yet). The key dynamic of this account of evolution is that systems have agency, and the environment has impact all within a given &quot;generation&quot;. Geologic timescale no longer required.</p>
+              <h2>Possible Futures vs. Coherent Present</h2>
+              <p>One evolutionary tension is between the stability of a system and its ability to evolve into something else. Too unstable, and it won&#x27;t survive to give evolution a try. Too stable, and it will eventually lose to competing systems who developed capabilities it can&#x27;t handle. We need the resolution to this tension for our purposes later on the Road to the Red Queen, and I think these ideas are immediately applicable for product and culture leaders as a happy side effect. So, how do we resolve this?</p>
+              <p><strong>Distinction: </strong>Genotype vs. Phenotype Stability</p>
+              <p>Here we can think about the genotype as the code or the back end that, through its action, expresses a phenotype, which we&#x27;ll think of as the resulting experience or process or application. The way to resolve the tension between stability and evolvability is to further segment stability into <em>genotype stability</em> and <em>phenotype stability</em>.</p>
+              <p>What you want is a stable phenotype, or product/culture/organization, that is producible by many different genotypes, or code/program/infrastructure. This allows you to experiment without losing the thing that makes you successful <em>today</em>. Your phenotype will eventually change, but such changes should not be undertaken lightly in a business or political context--in a biological context doing so often leads to death.</p>
+              <p>By having a genotype that is (somewhat) free to experiment, your chances of arriving at a genotypic configuration that can express a true phenotypic upgrade vastly increase. On the flip side, high genotype and low phenotype stability is an evolutionary dead end.</p>
+              <h2>The Past is Always Present</h2>
+              <p>Evolution goes in only one direction, it isn&#x27;t reversible. Even if you gain and then lose an innovation, the world state does not return to what it was before you gained it. Hysteresis has many consequences worth looking into, but for our purposes here I think the important takeaway is that there is no clean slate. The level of abstraction and degree of detail you look at these things matters a great deal--and we&#x27;ll get into that at length a little further along the Road to the Red Queen.</p>
+              <p>One easy example: consider a company with a deeply unpopular policy held for a long time. Some arbitrary restriction on employees exercising PTO, let&#x27;s say. If that policy is reversed one fine day, employee sentiment is not magically rejuvenated in any deep or lasting sense. Sentiment <em>may</em> achieve meteoric heights, but it will have to do so carrying its baggage.</p>
+              <h2>Stigmergy</h2>
+              <p>Stigmergy is an awkward word that means the traces of action left on an environment resulting in changing the course of future actions. I&#x27;ll barely touch on this here, though we might revisit this later, depending on how deep into collective emergence we get. I bring this up as a starting point for folks who are wondering how changing the environment could possibly lead to changing gene expression in organisms (or internal control in systems more generally).</p>
+              <p>For an easy example of stigmergy, imagine going up a path and you reach a fork. The sign points left, &quot;Spa Town&quot;, and right &quot;Dangerous Animals&quot;. You switch the direction of the signs and then continue left to &quot;Spa Town&quot;. A few hours later I follow the path right and end up eaten by jackalopes while looking for the jacuzzi.</p>
+              <p>Your operations environment is a speck on the wall of someone else&#x27;s and so forth. None of this happens in a void, even within a particular system. For now, remember stigmergy in that way--you are impacted by a myriad of things, most of which you can&#x27;t name, let alone measure; and in turn you do the same to others. How to pick what is important in a given context is very hard. Much more on that further down the road.</p>
+              <h2>Evolution on the Road to the Red Queen</h2>
+              <p>With respect to <em>Seeing in a Strange Wilderness</em>, Extended Evolution serves as a conceptual framing layer upon which the rest of the ideas start to take shape and become actionable. Alone, EE does not get us terribly far--it&#x27;s a descriptive framework. This form of description is centrally important to making everything else in this project work, however.</p>
+              <p>Most importantly, perhaps, is that EE gets us thinking about our teams, products, companies, whatever as part of a larger environment that we change--and that changes us. I suspect that you&#x27;re thinking, &quot;well, yea--obviously.&quot;, and you&#x27;re right. That said, when was the last time you sat back and framed your work in that light?</p>
+              <p>Building metrics and mechanisms atop the internalization-externalization cycle is the whole project.</p>
+              <h2>So, What?</h2>
+              <p>This is all well and good, lots of talk about later later later. What might you do with this idea right now?</p>
+              <p>From EE, we nail down a concept of innovation and the machinery for identifying it. This can become a powerful mechanism for prioritization, sequencing, and assessment--and fitting the same within a narrative. You might try leveraging EE&#x27;s descriptive power for your space. Go back as far as your data (or practicality allows) and play forward into EE&#x27;s form. I suspect you will get something out of the exercise--new insight, a different way to tell the story, etc.</p>
+              <p>Further, the tension between genotype and phenotype evolution is a stark warning to those driving significant cultural or brand change: the way you do that matters, and the wrong way can kill you. One heuristic that may help is to evaluate the levers you&#x27;re pulling to effect such change--are they genotype or phenotype levers? If the latter, can your genotype support the resulting phenotype? Is there a sequence of genotype levers that get you to the phenotype that you want? If you, you probably want to use it.</p>
+              <hr>
+              <p>[0] Particularly the 2015 paper &quot;Extended evolution: A conceptual framework for integrating regulatory networks and niche construction&quot; coauthored with Jurgen Renn in <em>Experimental Zoology</em>.</p>
+            </div>
+          </article>
+          <nav class="essay-nav" aria-label="Essay navigation (bottom)">
+            <a class="essay-previous" href="/writing/intuition-in-a-data-driven-world/" rel="prev">
+              <span class="essay-direction">← previous</span>
+              <span>Intuition in a Data-Driven World</span>
+            </a>
+            <a class="essay-next" href="/writing/enter-the-intersubjective/" rel="next">
+              <span class="essay-direction">next →</span>
+              <span>Enter the Intersubjective: Wilfrid Sellars as Operations Theorist</span>
+            </a>
+          </nav>
+        </div>
+      </main>
+
+      <footer class="colophon">
+        <span>antimeme is nomad science.</span>
+        <span>©2026 antimeme ai</span>
+      </footer>
+    </div>
+  </body>
+</html>
