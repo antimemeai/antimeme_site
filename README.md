@@ -16,7 +16,7 @@ concrete glimpses, not a catalog; no engagement explanation or funnel.
 Services copy is in `public/index.html`; open-source copy is in
 `public/open-source/index.html`. Each page has its own title and description.
 The shared top navigation links `/`, `/open-source/`, and `/writing/`; keep it
-in sync across all seven pages. Set `aria-current="page"` on the current page's
+in sync across all published pages. Set `aria-current="page"` on the current page's
 link, or `aria-current="location"` on Writing while reading an essay.
 The contact link uses `hiya@antimeme.ai`. Layout, colors, and type are in
 `public/styles.css`; the colors are defined at the top of the stylesheet.
@@ -38,7 +38,7 @@ A keyboard skip link leads directly to the main content.
 `public/writing/index.html` is a simple title list. Each essay lives in its own
 directory beneath `public/writing/`, with readable prose and previous/next
 links at both ends. The sequence is Intuition, Cell to Atom Bomb,
-Intersubjective, Invariants, following the series introductions. The first
+Intersubjective, Invariants, then JSMNTL: Solo Bot Coding. The first
 essay has no previous link; the last has no next link. Articles scroll
 naturally. Their masthead and footer match the rest of the site.
 Each essay starts at its first substantive section beneath the title; the
@@ -51,7 +51,8 @@ The four recovered essays are dated approximately 2023/2024, as supplied by
 the author. The list also links The Hacker Perspective directly to its scan in
 2600, Vol. 40, No. 1 (Spring 2023). Publication metadata lives in
 `PUBLICATIONS` in the import utility; these external items do not change the
-local essays' series navigation. Dates sit beside titles on desktop and above
+local essays' navigation. JSMNTL uses the explicit June 28, 2026 date from its
+source document. Dates sit beside titles on desktop and above
 them on phones. All published footers name Antimeme AI LLC.
 
 Edit these HTML files directly. When adding an essay, update the title list
@@ -69,6 +70,13 @@ portrait editorial redraw, served locally as
 `public/writing/evolution-diagram-editorial.png`.
 Selecting it opens the full-resolution image. Imports retain this replacement;
 the original bitmap remains in the unchanged ODT source archive.
+
+JSMNTL was recovered from `~/Documents/JSMNTL_Solo_Bot_Coding.pages` and
+exported with Apple Pages to DOCX and plain text in ignored
+`context/writing-sources/`. Its published HTML is directly editable, and the
+operator-requested final-sentence omission is already applied. `HTML_ESSAYS`
+in the import utility holds its title/date metadata; reimports retain the
+existing article markup while refreshing the index and navigation.
 
 `archive/` holds previous pages for reference, including the multiplayer-agents
 splash. These files are not published.

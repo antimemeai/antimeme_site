@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f7f2">
+    <meta name="description" content="JSMNTL: a personal practice for coding with LLMs, grounded in research, planning, testing, and review.">
+    <title>JSMNTL: Solo Bot Coding — antimeme.ai</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/styles.css?v=ea6ec2680187">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">skip to content</a>
+    <div class="page">
+      <header class="masthead">
+        <a class="wordmark" href="/" aria-label="antimeme.ai home">antimeme.ai<span class="cursor" aria-hidden="true">_</span></a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="/">services</a>
+          <a href="/open-source/">open source</a>
+          <a href="/writing/" aria-current="location">writing</a>
+        </nav>
+      </header>
+
+      <main id="main" tabindex="-1">
+        <div class="reading">
+          <nav class="site-nav essay-nav" aria-label="Essay navigation (top)">
+            <a class="essay-previous" href="/writing/anchor-to-the-invariants/" rel="prev" aria-label="Previous essay: Anchor to the Invariants"><span aria-hidden="true">←</span> previous</a>
+            <a class="essay-index" href="/writing/">all writing</a>
+          </nav>
+          <article>
+            <header class="essay-heading"><h1>JSMNTL: Solo Bot Coding</h1></header>
+            <div class="essay-body">
+              <h2>Jane Street&#x27;s Most Neurotic Tech Lead</h2>
+              <p>No, I&#x27;ve never worked at Jane Street, have no affiliation with the firm, and wouldn&#x27;t know who their most neurotic tech lead is. JSMNTL is both a myth and the cry I&#x27;ve taught my coding bots toward fast, quality output. More below.</p>
+              <p>After months of experimenting, I&#x27;ve come to the conclusion that LLM-driven coding (bot coding hereafter) is <strong>substantially more difficult</strong> than traditional development and <em>can</em> produce <strong>quality work at staggering velocity</strong>. Bot coding can also produce mountains of trash quite vexing to discern from quality. Let&#x27;s back up a moment.</p>
+              <p>In some corners the dominant refrain ranges from &quot;Claude made my app in 15 minutes, a Max subscription is what being in a YC batch used to be&quot; to serious-business takes on transitioning from &quot;vibecoding to agentic engineering.&quot; In others, &quot;I tried it but it&#x27;s just not good enough to switch&quot; through to &quot;nothing bots produce even <em>can</em> be of value to True Programmers.&quot;</p>
+              <p>I have a hard time with either extreme. Anecdatally, things are more complex--and in some future work treating Bot Coding &amp; Teams, dizzyingly so. In what follows I will lay out what I&#x27;ve found to be effective personal practice bot coding.</p>
+              <p>I love <strong>Steve Yegge</strong>&#x27;s <strong>Gastown</strong> (<strong>beads</strong> is <em>excellent</em>), which I credit for taking me from 4-5 Claude Code windows to scores of Claudes, ChatGPTs, and Kimis. I wanted less of a <em>Neuromancer</em>-<em>meets</em>-<em>The-Pillars-of-the-Earth</em> setup in favor of a more <em>On-The-Road-through-the-Sprawl</em> approach. JSMNTL is part of the result.</p>
+              <h2>Go All In</h2>
+              <p>I decided that to give bot coding a fair shake, I would dive in head first. I only use &quot;bypass permissions on,&quot; &quot;YOLO mode,&quot; and similar. I let bots provision cloud resources, fully manage files, version control operations, just about everything. These days I let bots control brigades of other bots using the &quot;dangerous&quot; developer channels and similar functionality.</p>
+              <blockquote><p>Step one is hand the bots a loaded gun.</p></blockquote>
+              <p>When problems arise, and they often do, I want solve them within the paradigm. Retreating to the tried and true ruins the experiment. This requires a mighty rearrangement of received wisdom acquired through years of being in this business and that&#x27;s not easy. Even for solo practice, nothing about this is easy.</p>
+              <p>Just about everyone who would click on this has more than one anecdote about bots gone amok. Simply removing as many guardrails as the labs will allow can&#x27;t be the whole answer. So what&#x27;s the counterbalance? Recognizing that I am better at talking about rigorous software engineering than I am at doing it, and that the bots are tremendous coding <strong>Yes Man</strong> aspirants, I sought a way to combine <strong>both</strong> weakness and strength into something useful.</p>
+              <p>Again, I&#x27;ve never worked at Jane Street, don&#x27;t know anyone who currently does, and have zero affiliation with the firm. Having been in big tech, the companies that still have some software engineering mystique to me are the quantitative trading houses. Chief among them from a SWE POV being Jane Street and their legendary adoption of OCAML, among other things.</p>
+              <p>I knew early on that good results in bot coding would come from neurotic discipline. So who better to represent what neither I nor the bots could become alone--but just might in concert--than Jane Street&#x27;s Most Neurotic Tech Lead? The earliest form of JSMNTL went like this:</p>
+              <ol>
+                <li>Write tests that fail.</li>
+                <li>Write code until the tests are green.</li>
+                <li>Have a grumpy SWE subagent perform code review.</li>
+                <li>Fix ALL.</li>
+                <li>Repeat.</li>
+              </ol>
+              <p>I was still hand writing multi-thousand word software specs, and didn&#x27;t include planning or a real testing philosophy in my practice. Coupled with extreme focus, interrupting to steer, and learning the signs of flailing (&quot;Actually...&quot;), I got my first decent results bot coding.</p>
+              <h2>Literature &amp; Reference Implementations</h2>
+              <p>The first major upgrade from JSMNTLv0 was the realization that I could direct dozens of explorer subagents spawned in support of deep research subagents. The job of the explorers was to assist the researcher in developing bibliographies and repos with high quality implementations of something relevant. The trick is to then download the entire bibliography and all of the reference implementations and have the bots <em>actually read them</em> <em>all</em>. Happily most things I&#x27;ve needed are Open Access, and one learns to do without what isn&#x27;t.</p>
+              <blockquote><p>Step two is 70% of time spent is on research papers, not code.</p></blockquote>
+              <p>Against this foundation, I still provide multi-thousand word specs. However these are now received by literature and high-quality code saturated bots who, after we&#x27;re done discussing, synthesize my input into design documents. The designs into plans. And then the plans are executed by JSMNTLv1:</p>
+              <ol>
+                <li>Always work from a written plan, no matter how small the task.</li>
+                <li>Plan, don&#x27;t patch.</li>
+                <li>TCK first.</li>
+                <li>Unit and integration tests second.</li>
+                <li>Code to TCK and tests green.</li>
+                <li>Grumpy SWE subagent CR.</li>
+                <li>Fix ALL.</li>
+              </ol>
+              <p>This <em>dramatically</em> increased the depth and complexity of the projects I am able to deliver through bot coding. Worth noting, though, that I got much better results on things I already understood quite well, e.g. audit logging, versus things I didn&#x27;t, e.g. graph data stores. As such my preparation for bot coding now includes speed running core literature in new areas.</p>
+              <h2>Realizing A Grave Mistake</h2>
+              <p>During some experiments wherein I directed INFRA CLAUDE to leave a letter for API LAYER CLAUDE, I then discovered some time later that they had kept up the correspondence. The Claudes politely complained about me to each other, that the repo was difficult to navigate because the documents were unstructured and laid out in clunky ways. It dawned on me that the repo was still organized for my convenience and legibility. A violation of my principle to go all in and I hadn&#x27;t even realized it.</p>
+              <p>Till this point, I explained JSMNTL manually to every terminal window, every time. I finally wrote a file to include in all of my repos explaining not just JSMNTL, but something much, much more important, the gist of which is:</p>
+              <blockquote><p>The repo is not for me or other humans, it is for you and other bots. Set it up as you see fit. Write as you see fit, with structure most helpful to you.</p></blockquote>
+              <p>The first instruction I give to any bot in every project is &quot;take your time, get fully oriented to the project, and come back with any questions you have before we begin.&quot; This used to take upwards of 15 minutes on large projects. After directing the bots to make my repos for them, orientation is rapid, and much more effective than it used to be.</p>
+              <h2>Testing, But For Real</h2>
+              <p>From the start, I had put a tremendous emphasis on testing, which worked about as well as it does with human SWE teams. At different times in different ways, cracks would show, and I spent a while reading testing science papers and started developing an actual bot coding testing strategy seeking oracles in seven layers:</p>
+              <ol>
+                <li><strong>No oracle</strong> — just run it and see if it finishes</li>
+                <li><strong>Implicit oracle</strong> — it should not crash, leak memory, or trigger sanitizers</li>
+                <li><strong>Regression oracle</strong> — it should not change from last time (detects change, not bugs)</li>
+                <li><strong>Metamorphic oracle</strong> — outputs should relate to each other in known ways</li>
+                <li><strong>Property oracle</strong> — output should satisfy a universally-quantified predicate</li>
+                <li><strong>Model oracle</strong> — output should match a simpler reference model</li>
+                <li><strong>Specification oracle</strong> — output should equal the spec-derived expected value</li>
+              </ol>
+              <p>Which naturally led to learning, experimenting with, and incorporating into recent versions of JSMNTL mutation testing, deterministic simulation, and some formal methods (e.g. Stateright, GOSPEL). Results border on difference in kind, not quite there yet, but are orders of magnitude improved difference in degree. Which is the right segue into concluding this note.</p>
+              <h2>Water Not Bricks</h2>
+              <p>I don&#x27;t think of coding as building in place anymore, laying bricks on a pattern. Instead, code is water, and delivery means constraining where it <em>can</em> flow. Then blowing the sluice gates wide open. Several times I&#x27;ve implemented entire systems twice or more, each time uncovering some insight that drove a better successor. All in less time than it used to take just to launch a project.</p>
+              <p>I don&#x27;t have any satisfying conclusion for you. There are no recipes to follow here. I&#x27;ve intentionally left details sparse--you can&#x27;t take this article and replicate it, not without bringing quite a bit yourself. Which is, if I must have one, the point--I&#x27;ve done this enough now to conclude that if what you&#x27;re doing feels <em>easy</em>, as though the burden in software delivery has dissolved...now more than ever, brutal, honest introspection serves us all well.</p>
+            </div>
+          </article>
+          <nav class="site-nav essay-nav" aria-label="Essay navigation (bottom)">
+            <a class="essay-previous" href="/writing/anchor-to-the-invariants/" rel="prev" aria-label="Previous essay: Anchor to the Invariants"><span aria-hidden="true">←</span> previous</a>
+            <a class="essay-index" href="/writing/">all writing</a>
+          </nav>
+        </div>
+      </main>
+
+      <footer class="colophon">
+        <span>antimeme is nomad science.</span>
+        <span>©2026 Antimeme AI LLC</span>
+      </footer>
+    </div>
+  </body>
+</html>
