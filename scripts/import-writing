@@ -28,6 +28,14 @@ ESSAYS = (
     ("anchor-to-the-invariants", "anchor_to_the_invariants_meta.odt",
      "/pulse/anchor-invariants-patrick-beam-ppife"),
 )
+# Separate publications link to their original edition; the four local essays
+# retain their series navigation. Dates are at the precision actually known.
+PUBLICATIONS = (
+    ("The Hacker Perspective",
+     "https://archive.org/details/2600-volume-40-issue-1/page/n13/mode/2up",
+     "Spring 2023", "2023", "2600 · Vol. 40, No. 1"),
+)
+ESSAY_DATE = "2023/2024"
 DIAGRAM_ALT = (
     "The feedback cycle runs from regulation through externalization, niche "
     "construction, and internalization back to regulation. Regulation and "
@@ -189,6 +197,19 @@ def neighbors(index, documents, position):
             + "\n".join(links) + "\n          </nav>")
 
 
+def listing_item(title, href, date, year=None, publication=None):
+    if year:
+        date_html = f'<time class="writing-date" datetime="{escape(year, quote=True)}">{escape(date)}</time>'
+    else:
+        date_html = (f'<span class="writing-date" aria-label="Approximate writing date: '
+                     f'{escape(date, quote=True)}">{escape(date)}</span>')
+    note = (f'                <span class="writing-publication">{escape(publication)}</span>\n'
+            if publication else "")
+    return (f'            <li><a href="{escape(href, quote=True)}">\n'
+            f'                <span class="writing-title">{escape(title)}</span>\n'
+            f'                {date_html}\n' + note + '            </a></li>')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source_directory", type=Path)
@@ -197,8 +218,9 @@ def main():
     destination = ROOT / "public/writing"
     destination.mkdir(exist_ok=True)
     items = "\n".join(
-        f'            <li><a href="/writing/{slug}/">{escape(doc.title)}</a></li>'
-        for (slug, _, _), doc in zip(ESSAYS, documents)
+        [listing_item(*publication) for publication in PUBLICATIONS]
+        + [listing_item(doc.title, f"/writing/{slug}/", ESSAY_DATE)
+           for (slug, _, _), doc in zip(ESSAYS, documents)]
     )
     listing = ('      <main id="main" class="writing-main" tabindex="-1">\n'
                '        <section class="intro" aria-labelledby="intro-heading">\n'

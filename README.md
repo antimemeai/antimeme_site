@@ -47,6 +47,12 @@ The previous/next links share the main navigation's small monospace type and
 hover underline. Destination titles remain in their accessible labels.
 Both navigation rows put all writing in the center between previous and next,
 even when a neighboring link is absent. These rows have no horizontal rules.
+The four recovered essays are dated approximately 2023/2024, as supplied by
+the author. The list also links The Hacker Perspective directly to its scan in
+2600, Vol. 40, No. 1 (Spring 2023). Publication metadata lives in
+`PUBLICATIONS` in the import utility; these external items do not change the
+local essays' series navigation. Dates sit beside titles on desktop and above
+them on phones. All published footers name Antimeme AI LLC.
 
 Edit these HTML files directly. When adding an essay, update the title list
 and the neighboring essays' navigation at both ends. Keep shared navigation
