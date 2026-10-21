@@ -145,7 +145,7 @@ a:focus-visible {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: baseline;
   gap: 8px 28px;
-  padding-block: 23px;
+  padding-block: 18px;
   font-size: clamp(21px, 2.5vw, 28px);
   line-height: 1.3;
   letter-spacing: -0.025em;
@@ -159,11 +159,19 @@ a:focus-visible {
 }
 
 .writing-date,
+.writing-meta,
 .writing-publication {
   font-family: var(--mono);
   font-size: 11px;
   line-height: 1.6;
   letter-spacing: 0;
+}
+
+.writing-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
 }
 
 .writing-date {
@@ -623,8 +631,9 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .writing-date {
+  .writing-meta {
     grid-row: 1;
+    justify-self: start;
   }
 
   .writing-title {

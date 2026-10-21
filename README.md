@@ -37,9 +37,10 @@ A keyboard skip link leads directly to the main content.
 
 `public/writing/index.html` is a simple title list. Each essay lives in its own
 directory beneath `public/writing/`, with readable prose and previous/next
-links at both ends. The sequence is Intuition, Cell to Atom Bomb,
-Intersubjective, Invariants, then JSMNTL: Solo Bot Coding. The first
-essay has no previous link; the last has no next link. Articles scroll
+links at both ends. Local writings follow the author's supplied dates:
+The Strange Wilderness, Intuition, Intersubjective, Cell/Atom Bomb, Invariants,
+then JSMNTL: Solo Bot Coding. The first writing has no previous link; the last
+has no next link. Articles scroll
 naturally. Their masthead and footer match the rest of the site.
 Each essay starts at its first substantive section beneath the title; the
 old summaries, disclaimers, welcomes, and released-essay lists are omitted.
@@ -47,13 +48,14 @@ The previous/next links share the main navigation's small monospace type and
 hover underline. Destination titles remain in their accessible labels.
 Both navigation rows put all writing in the center between previous and next,
 even when a neighboring link is absent. These rows have no horizontal rules.
-The four recovered essays are dated approximately 2023/2024, as supplied by
-the author. The list also links The Hacker Perspective directly to its scan in
+The four recovered essays use exact dates supplied by the author, stored in
+`ESSAY_DATES`. The list also links The Hacker Perspective directly to its scan in
 2600, Vol. 40, No. 1 (Spring 2023). Publication metadata lives in
 `PUBLICATIONS` in the import utility; these external items do not change the
 local essays' navigation. JSMNTL uses the explicit June 28, 2026 date from its
-source document. Dates sit beside titles on desktop and above
-them on phones. All published footers name Antimeme AI LLC.
+source document. Each row shows a category (magazine essay, essay, or note)
+beside its date. Metadata sits beside titles on desktop and above them on
+phones. All published footers name Antimeme AI LLC.
 
 Edit these HTML files directly. When adding an essay, update the title list
 and the neighboring essays' navigation at both ends. Keep shared navigation
@@ -77,6 +79,12 @@ exported with Apple Pages to DOCX and plain text in ignored
 operator-requested final-sentence omission is already applied. `HTML_ESSAYS`
 in the import utility holds its title/date metadata; reimports retain the
 existing article markup while refreshing the index and navigation.
+
+The Strange Wilderness was transcribed from the author-supplied screenshot,
+archived intact at `context/writing-sources/the-strange-wilderness-source.png`.
+Its circa May 12, 2024 date is visibly approximate. It is also registered in
+`HTML_ESSAYS`, with category note. The import utility pairs each article with
+its metadata before sorting by date, keeping both neighbor rows chronological.
 
 `archive/` holds previous pages for reference, including the multiplayer-agents
 splash. These files are not published.

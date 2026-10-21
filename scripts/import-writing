@@ -17,7 +17,7 @@ NS = {
     "fo": "urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0",
     "xlink": "http://www.w3.org/1999/xlink",
 }
-# The reading order comes from the series introductions, not file timestamps.
+# Source mapping; reading order follows the author's supplied dates below.
 ESSAYS = (
     ("intuition-in-a-data-driven-world", "intuition_in_a_data_driven_world_meta.odt",
      "/pulse/intuition-data-driven-world-patrick-beam-sxgae"),
@@ -33,14 +33,21 @@ ESSAYS = (
 PUBLICATIONS = (
     ("The Hacker Perspective",
      "https://archive.org/details/2600-volume-40-issue-1/page/n13/mode/2up",
-     "Spring 2023", "2023", "2600 · Vol. 40, No. 1"),
+     "Spring 2023", "2023", "2600 · Vol. 40, No. 1", "magazine essay"),
 )
-ESSAY_DATE = "2023/2024"
+ESSAY_DATES = {
+    "intuition-in-a-data-driven-world": ("May 28, 2024", "2024-05-28"),
+    "enter-the-intersubjective": ("June 2, 2024", "2024-06-02"),
+    "from-the-cell-to-the-atom-bomb": ("June 21, 2024", "2024-06-21"),
+    "anchor-to-the-invariants": ("July 3, 2024", "2024-07-03"),
+}
 # These articles are edited directly as HTML. Reimports retain their article
 # markup while refreshing the shared page template, index, and neighbor links.
 HTML_ESSAYS = (
     ("jsmntl-solo-bot-coding", "JSMNTL: Solo Bot Coding", "June 28, 2026", "2026-06-28",
-     "JSMNTL: a personal practice for coding with LLMs, grounded in research, planning, testing, and review."),
+     "JSMNTL: a personal practice for coding with LLMs, grounded in research, planning, testing, and review.", "essay"),
+    ("the-strange-wilderness", "The Strange Wilderness", "c. May 12, 2024", "2024-05-12",
+     "A note on overlapping upheavals and adapting to a changing world.", "note"),
 )
 DIAGRAM_ALT = (
     "The feedback cycle runs from regulation through externalization, niche "
@@ -204,13 +211,13 @@ def neighbors(index, entries, position):
             links.append(
                 f'            <a class="essay-{label}" href="/writing/{slug}/" '
                 f'rel="{"prev" if offset < 0 else "next"}" '
-                f'aria-label="{label.capitalize()} essay: {title}">{text}</a>'
+                f'aria-label="{label.capitalize()} writing: {title}">{text}</a>'
             )
-    return (f'          <nav class="site-nav essay-nav" aria-label="Essay navigation ({position})">\n'
+    return (f'          <nav class="site-nav essay-nav" aria-label="Writing navigation ({position})">\n'
             + "\n".join(links) + "\n          </nav>")
 
 
-def listing_item(title, href, date, year=None, publication=None):
+def listing_item(title, href, date, year=None, publication=None, category="essay"):
     if year:
         date_html = f'<time class="writing-date" datetime="{escape(year, quote=True)}">{escape(date)}</time>'
     else:
@@ -220,7 +227,8 @@ def listing_item(title, href, date, year=None, publication=None):
             if publication else "")
     return (f'            <li><a href="{escape(href, quote=True)}">\n'
             f'                <span class="writing-title">{escape(title)}</span>\n'
-            f'                {date_html}\n' + note + '            </a></li>')
+            f'                <span class="writing-meta"><span class="writing-category">{escape(category)}</span>'
+            f' <span aria-hidden="true">·</span> {date_html}</span>\n' + note + '            </a></li>')
 
 
 def main():
@@ -230,7 +238,7 @@ def main():
     documents = [Document(args.source_directory / name) for _, name, _ in ESSAYS]
     destination = ROOT / "public/writing"
     destination.mkdir(exist_ok=True)
-    entries = [(slug, doc.title, ESSAY_DATE, None, doc.description)
+    entries = [(slug, doc.title, *ESSAY_DATES[slug], doc.description, "essay")
                for (slug, _, _), doc in zip(ESSAYS, documents)] + list(HTML_ESSAYS)
     articles = []
     for doc in documents:
@@ -239,27 +247,28 @@ def main():
                         + f'            <header class="essay-heading"><h1>{escape(doc.title)}</h1></header>\n'
                         + '            <div class="essay-body">\n' + body
                         + '\n            </div>\n          </article>')
-    for slug, _, _, _, _ in HTML_ESSAYS:
+    for slug, _, _, _, _, _ in HTML_ESSAYS:
         source = (destination / slug / "index.html").read_text()
         start = source.index('          <article>')
         end = source.index('          </article>', start) + len('          </article>')
         articles.append(source[start:end])
+    entries, articles = zip(*sorted(zip(entries, articles), key=lambda item: item[0][3]))
     items = "\n".join(
         [listing_item(*publication) for publication in PUBLICATIONS]
-        + [listing_item(title, f"/writing/{slug}/", date, year)
-           for slug, title, date, year, _ in entries]
+        + [listing_item(title, f"/writing/{slug}/", date, year, category=category)
+           for slug, title, date, year, _, category in entries]
     )
     listing = ('      <main id="main" class="writing-main" tabindex="-1">\n'
                '        <section class="intro" aria-labelledby="intro-heading">\n'
                '          <h1 id="intro-heading">writing.</h1>\n        </section>\n'
                '        <ul class="writing-list" aria-label="Writings">\n'
                + items + '\n        </ul>\n')
-    (destination / "index.html").write_text(page("Writing", "Essays by Patrick Beam.", listing))
-    for i, ((slug, title, _, _, description), article) in enumerate(zip(entries, articles)):
+    (destination / "index.html").write_text(page("Writing", "Essays and notes by Patrick Beam.", listing))
+    for i, ((slug, title, _, _, description, _), article) in enumerate(zip(entries, articles)):
         target = destination / slug
         target.mkdir(exist_ok=True)
         (target / "index.html").write_text(article_page(title, description, article, i, entries))
-    print(f"Updated {len(entries)} local essays and the writing index.")
+    print(f"Updated {len(entries)} local writings and the writing index.")
 
 
 if __name__ == "__main__":
