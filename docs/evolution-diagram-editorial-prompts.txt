@@ -1,0 +1,67 @@
+Built-in image_gen — initial editorial redesign
+
+Use case: infographic-diagram / style-transfer.
+Edit target: the attached extended-evolution diagram, supplied ONLY for its content and directed graph. The user wants a substantially redesigned, professionally art-directed presentation, not another tracing of its school-project layout.
+
+Create a finished PORTRAIT editorial plate, approximately 1536 wide by 2048 high, for a 720px-wide technical essay. A beautiful, restrained technical figure with large readable type, precisely routed hairline ink arrows, generous but efficient spacing, and a flat uniform warm-paper background #f8f7f2. Ink #181916, no colored fills or effects. Pen-and-ink character in the fine connector strokes. Crisp clean sans-serif explanations, subtly spaced modest monospace node headings, typography aligned to a clear grid. No handwriting, shadows, photographed paper, ornamental drawings, added title, numbering, legend, or invented content. Use the space for content, not huge margins.
+
+REDESIGN THE COMPOSITION:
+Use a compact 2x2 feedback cycle at the top and a clean centered vertical downstream sequence beneath it. Replace the oversized enclosing oval and the irregular PowerPoint boxes with precisely aligned OPEN typographic nodes: a short fine rule above each heading, its explanation below, sufficient breathing room; no enclosing box outlines. The text is the visual anchor, with connectors routed only through dedicated whitespace.
+
+Top 2x2 cycle:
+top-left REGULATION; top-right Externalization;
+bottom-left Internalization; bottom-right NICHE CONSTRUCTION.
+Four arrows, exactly clockwise:
+REGULATION -> Externalization (rightward across the upper gap);
+Externalization -> NICHE CONSTRUCTION (downward in the right-side gap);
+NICHE CONSTRUCTION -> Internalization (leftward across the lower gap);
+Internalization -> REGULATION (upward in the left-side gap).
+The phrase "Adaptive Feedback Mechanisms" describes the pair of edges meeting REGULATION. The phrase "Transforming Complex Networks" describes the pair of edges meeting NICHE CONSTRUCTION. Place these group labels sensitively alongside the relevant connections with no text crossings. Do not make them new graph nodes.
+
+Two ADDITIONAL edges leave REGULATION and NICHE CONSTRUCTION. Route these through separate outer gutters, clear of the four cycle edges, and merge them BELOW the cycle into ONE unambiguous confluence. Mark this junction "Together Produce". One arrow from the confluence enters Variance: Inventions. Branches must begin at REGULATION and NICHE CONSTRUCTION, not at the other nodes.
+Below that: four aligned wide typographic nodes stacked vertically:
+Variance: Inventions
+then Natural Selection
+then Innovation
+then EVOLUTION.
+Connect these with three downward arrows through generous gaps. Their respective edge labels are "Acted upon by", "Selected Inventions Become", and "Join system history as ultimate product of". Set the labels in the whitespace adjacent to the arrows, keeping them readable, and distinguish labels from node headings.
+EVOLUTION is the final outcome, with NO outgoing arrows. Do NOT connect it back into the cycle.
+
+EXACT GRAPH: R->X, X->N, N->I, I->R; R->junction, N->junction, junction->V; V->S, S->Innovation, Innovation->Evolution. No added, omitted, reversed, or duplicated edges. One arrowhead per directed edge.
+
+NODE TEXT VERBATIM; ALL EIGHT NODES EXACTLY ONCE, EVERY EXPLANATION COMPLETE:
+"REGULATION"
+"Mechanisms that control development (without loss of generality) of phenotypes."
+
+"Externalization"
+"Actions and behaviors change the environment in accordance with internal system state."
+
+"Internalization"
+"Constructed environmental state in turn changes the internal regulatory networks (and selection reward function)."
+
+"NICHE CONSTRUCTION"
+"Various ways in which organisms (without loss of generality) alter their environment."
+
+"Variance: Inventions"
+"From transformations of complex networks emerges variance, or inventions."
+
+"Natural Selection"
+"Occurs when a population produces more members than resources can support, resulting in aggregate better outcomes (selection) for superior individuals."
+
+"Innovation"
+"Selected inventions become innovations and take hold in the system."
+
+"EVOLUTION"
+"Gradual change in a system, such as a class of organisms, over time toward greater fitness for purpose."
+
+Preserve the scientific content and directed graph exactly while completely rethinking the visual arrangement. Make this look like a carefully typeset figure in a contemporary essay, not a flowchart slide. Keep lettering large enough to read when reduced to essay-column width.
+
+Built-in image_gen — directed-graph correction
+
+Edit target: the attached portrait diagram. Make ONE graph-topology correction only; preserve every word, every node position, typography, paper, spacing, all four cycle arrows, downstream chain and remaining linework exactly.
+The long outer right-hand curved branch currently starts beside the UPPER-RIGHT Externalization node and goes down the right edge to the "Together Produce" confluence. That attachment is WRONG.
+Erase the part of this outside branch running beside Externalization and above NICHE CONSTRUCTION. The right outside branch must instead START at the right edge of the LOWER-RIGHT NICHE CONSTRUCTION node, beside its explanatory text. From that node it should curve out to the right briefly, then down and left into the existing Together Produce confluence.
+There must be NO outer branch from Externalization. Preserve the existing downward interior arrow from Externalization to NICHE CONSTRUCTION.
+Keep the left outer branch from REGULATION into Together Produce unchanged.
+Thus the confluence's two source nodes are REGULATION and NICHE CONSTRUCTION, exactly. No other source. Keep its one arrow to Variance: Inventions.
+Do not change any other part of the image. Preserve the portrait format and complete uncropped text.

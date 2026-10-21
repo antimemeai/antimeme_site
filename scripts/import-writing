@@ -29,10 +29,10 @@ ESSAYS = (
      "/pulse/anchor-invariants-patrick-beam-ppife"),
 )
 DIAGRAM_ALT = (
-    "Extended evolution: regulation and niche construction interact through "
-    "internalization and externalization. Together they produce inventions; "
-    "natural selection turns selected inventions into innovations, which join "
-    "system history and feed back into the system."
+    "The feedback cycle runs from regulation through externalization, niche "
+    "construction, and internalization back to regulation. Regulation and "
+    "niche construction together produce inventions, which natural selection "
+    "turns into innovations. Innovations join system history as evolution."
 )
 
 
@@ -97,10 +97,10 @@ class Document:
                 value = ""
             elif kind == "image":
                 # Retain the approved redraw instead of restoring the source bitmap.
-                value = ('<a href="/writing/evolution-diagram-ink.png">'
-                         '<img src="/writing/evolution-diagram-ink.png" '
+                value = ('<a href="/writing/evolution-diagram-editorial.png">'
+                         '<img src="/writing/evolution-diagram-editorial.png" '
                          f'alt="{escape(DIAGRAM_ALT, quote=True)}" '
-                         'width="1536" height="1024" loading="lazy">'
+                         'width="1086" height="1448" loading="lazy">'
                          '<span class="diagram-caption">view full size '
                          '<span aria-hidden="true">↗</span></span></a>')
             elif kind in ("a", "span", "frame"):

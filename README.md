@@ -57,7 +57,8 @@ all four published essays and regenerate the list from those sources, run
 `python3 scripts/import-writing context/writing-sources`. This import utility
 uses Python's standard library and is not part of serving or deployment.
 Reimporting overwrites subsequent HTML edits. The evolution diagram is a
-pen-and-ink redraw, served locally as `public/writing/evolution-diagram-ink.png`.
+portrait editorial redraw, served locally as
+`public/writing/evolution-diagram-editorial.png`.
 Selecting it opens the full-resolution image. Imports retain this replacement;
 the original bitmap remains in the unchanged ODT source archive.
 
