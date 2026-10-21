@@ -56,8 +56,10 @@ copied intact to ignored `context/writing-sources/`. To intentionally replace
 all four published essays and regenerate the list from those sources, run
 `python3 scripts/import-writing context/writing-sources`. This import utility
 uses Python's standard library and is not part of serving or deployment.
-Reimporting overwrites subsequent HTML edits. The embedded evolution diagram
-is served locally as `public/writing/evolution-diagram.jpg`.
+Reimporting overwrites subsequent HTML edits. The evolution diagram is a
+pen-and-ink redraw, served locally as `public/writing/evolution-diagram-ink.png`.
+Selecting it opens the full-resolution image. Imports retain this replacement;
+the original bitmap remains in the unchanged ODT source archive.
 
 `archive/` holds previous pages for reference, including the multiplayer-agents
 splash. These files are not published.

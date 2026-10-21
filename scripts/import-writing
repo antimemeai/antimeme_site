@@ -59,10 +59,6 @@ class Document:
                 for root in style_roots
                 for style in root.findall(".//style:style", NS)
             }
-            self.images = {
-                name: archive.read(name) for name in archive.namelist()
-                if name.startswith("Pictures/") and not name.endswith("/")
-            }
         self.body = self.root.find("office:body/office:text", NS)
         self.title = next(
             "".join(el.itertext()).strip() for el in self.body
@@ -100,12 +96,13 @@ class Document:
             elif kind in ("bookmark", "bookmark-start", "bookmark-end", "soft-page-break"):
                 value = ""
             elif kind == "image":
-                original = child.get(attr("xlink", "href"))
-                destination = ROOT / "public/writing/evolution-diagram.jpg"
-                destination.write_bytes(self.images[original])
-                value = (f'<img src="/writing/evolution-diagram.jpg" '
+                # Retain the approved redraw instead of restoring the source bitmap.
+                value = ('<a href="/writing/evolution-diagram-ink.png">'
+                         '<img src="/writing/evolution-diagram-ink.png" '
                          f'alt="{escape(DIAGRAM_ALT, quote=True)}" '
-                         'width="1167" height="473" loading="lazy">')
+                         'width="1536" height="1024" loading="lazy">'
+                         '<span class="diagram-caption">view full size '
+                         '<span aria-hidden="true">↗</span></span></a>')
             elif kind in ("a", "span", "frame"):
                 value = self.inline(child)
                 if kind == "a":
@@ -141,6 +138,8 @@ class Document:
             return "<hr>"
         if not value:
             return ""
+        if el.find('.//{urn:oasis:names:tc:opendocument:xmlns:drawing:1.0}image') is not None:
+            return f'<figure class="essay-diagram">{value}</figure>'
         if kind == "h":
             level = int(el.get(attr("text", "outline-level")))
             if level == 1:

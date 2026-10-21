@@ -1,0 +1,32 @@
+Use case: style-transfer / infographic-diagram.
+Edit target: the attached evolution diagram. Redraw this specific diagram; preserve its intellectual content, every label and sentence, all arrow directions, the feedback loop and the branching/merging relationships. Improve spacing and legibility radically.
+
+Asset: an editorial diagram for antimeme.ai, a quiet technical essay website. Style: precise pen-and-ink technical drawing on flat warm ivory paper #f8f7f2, dark near-black ink #181916, very light stippling or sparse crosshatching only for subtle accents. Fine slightly human linework, small open arrowheads, simple unfilled rectangular text areas, restrained clean sans-serif type for all explanatory text and modest monospace small-cap labels. No colors, gradients, shadows, sketchbook props, handwritten cursive, ornaments or distress. Keep ALL text perfectly typeset and legible. Match the site's understated typographic character. Background should be uniform warm ivory, not a photographed paper texture.
+
+Composition: landscape editorial plate, approximately 3:2 aspect ratio, generously spaced, high resolution. Reflow the original very wide graphic so the text is readable in an essay; keep a clearly organized left feedback-system group and the right/downstream process, with sufficient white space and no line crossings through text. No main title or legend added.
+The left feedback cycle, enclosed by a fine oval or rounded boundary: REGULATION at top; Externalization at middle left; Internalization at middle right; NICHE CONSTRUCTION at bottom.
+Arrows: REGULATION -> Externalization -> NICHE CONSTRUCTION -> Internalization -> REGULATION. Label the upper portion "Adaptive Feedback Mechanisms", and the lower portion "Transforming Complex Networks". These describe the pair of arrows each and must not obscure arrows or box text.
+REGULATION and NICHE CONSTRUCTION also branch to merge outside the group as "Together Produce" -> "Variance: Inventions" -> arrow labeled "Acted upon by" -> "Natural Selection" -> arrow labeled "Selected Inventions Become" -> "Innovation" -> arrow labeled "Join system history as ultimate product of" -> "EVOLUTION".
+Keep the EVOLUTION outcome connected from Innovation as shown; do not add any arrows from EVOLUTION to another box.
+
+Text, verbatim (headings followed by body):
+"REGULATION"
+"Mechanisms that control development (without loss of generality) of phenotypes."
+"Externalization"
+"Actions and behaviors change the environment in accordance with internal system state."
+"Internalization"
+"Constructed environmental state in turn changes the internal regulatory networks (and selection reward function)."
+"NICHE CONSTRUCTION"
+"Various ways in which organisms (without loss of generality) alter their environment."
+"Variance: Inventions"
+"From transformations of complex networks emerges variance, or inventions."
+"Natural Selection"
+"Occurs when a population produces more members than resources can support, resulting in aggregate better outcomes (selection) for superior individuals."
+"Innovation"
+"Selected inventions become innovations and take hold in the system."
+"EVOLUTION"
+"Gradual change in a system, such as a class of organisms, over time toward greater fitness for purpose."
+
+Other connection labels, each once: "Adaptive Feedback Mechanisms", "Transforming Complex Networks", "Together Produce", "Acted upon by", "Selected Inventions Become", "Join system history as ultimate product of".
+The faint numeral 1 in the original is a page artifact: omit it.
+All eight concept boxes must be present exactly once, with complete explanatory text, no cropped content. Use generous margins and consistent line weights. Make the layout feel considered and uncluttered, not mechanically traced from the original.

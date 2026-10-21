@@ -138,11 +138,6 @@ a:focus-visible {
   margin: 12px 0 0;
   padding: 0;
   list-style: none;
-  border-bottom: 1px solid var(--rule);
-}
-
-.writing-list li {
-  border-top: 1px solid var(--rule);
 }
 
 .writing-list a {
@@ -255,6 +250,28 @@ a:focus-visible {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.essay-diagram {
+  margin: 2em 0;
+}
+
+.essay-diagram a {
+  display: block;
+  text-decoration: none;
+}
+
+.diagram-caption {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-align: right;
+}
+
+.essay-diagram a:hover .diagram-caption {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .reading article + .essay-nav {
