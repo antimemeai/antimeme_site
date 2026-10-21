@@ -34,6 +34,10 @@ may scroll; never hide content to force a fit. Keep the static wordmark, local
 fonts, plain HTML/CSS, and keyboard access. No animations, analytics, badges,
 frameworks, or build step.
 
+The homepage introduction uses one left-aligned column with larger 20–24px
+text, above the existing services grid. This is a layout experiment requested
+on 2026-10-21; preserve the copy for the operator to simplify next.
+
 The operator subsequently requested top navigation and a separate open-source
 page. Keep it a short software page, not a resume: concrete descriptions,
 honest maturity, working source links. The initial entries are Blackbird,

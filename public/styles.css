@@ -361,10 +361,12 @@ main {
 
 .intro-layout {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
-  gap: 64px;
+  gap: 20px;
+  max-width: 52ch;
   margin-top: 36px;
+  font-size: clamp(20px, 2vw, 24px);
 }
 
 h1 {
@@ -379,7 +381,7 @@ h1 {
 .intro-note {
   max-width: 52ch;
   margin: 0;
-  font-size: 16px;
+  font-size: inherit;
   line-height: 1.55;
   letter-spacing: -0.015em;
 }
@@ -387,7 +389,7 @@ h1 {
 .team-note {
   max-width: 52ch;
   margin: 6px 0 0;
-  font-size: 16px;
+  font-size: inherit;
   line-height: 1.55;
 }
 
@@ -395,7 +397,7 @@ h1 {
 .team-background {
   display: block;
   margin-top: 6px;
-  font-size: 16px;
+  font-size: inherit;
   line-height: 1.55;
   letter-spacing: -0.015em;
 }
@@ -410,7 +412,7 @@ h1 {
   align-items: baseline;
   gap: 8px;
   margin-top: 6px;
-  font-size: 16px;
+  font-size: inherit;
   line-height: 1.55;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
@@ -639,14 +641,6 @@ h1 {
 @media (max-width: 1000px) {
   .page {
     width: calc(100% - 72px);
-  }
-
-  .intro-layout {
-    gap: 36px;
-  }
-
-  .intro-note {
-    max-width: 340px;
   }
 
   .services {
