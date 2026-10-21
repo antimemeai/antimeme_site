@@ -134,7 +134,7 @@ a:focus-visible {
 }
 
 .writing-list {
-  width: min(100%, 940px);
+  width: min(100%, 960px);
   margin: 12px 0 0;
   padding: 0;
   list-style: none;
@@ -169,7 +169,7 @@ a:focus-visible {
 
 .writing-meta {
   display: grid;
-  grid-template-columns: 13ch 1ch 14ch;
+  grid-template-columns: 16ch 1ch 14ch;
   align-items: baseline;
   gap: 8px;
   white-space: nowrap;

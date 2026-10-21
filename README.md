@@ -38,7 +38,8 @@ A keyboard skip link leads directly to the main content.
 `public/writing/index.html` is a simple title list. Each essay lives in its own
 directory beneath `public/writing/`, with readable prose and previous/next
 links at both ends. Local writings follow the author's supplied dates:
-The Hacker Perspective, The Strange Wilderness, Intuition, Intersubjective,
+The Hacker Perspective, Often Misunderstood: IC → M Transitions,
+The Strange Wilderness, Intuition, Intersubjective,
 Cell/Atom Bomb, Invariants, then JSMNTL: Solo Bot Coding.
 The first writing has no previous link; the last
 has no next link. Articles scroll
@@ -93,6 +94,13 @@ It is also registered in
 its metadata before sorting by date, keeping both neighbor rows chronological.
 On reimport, shared reading headers refresh from the catalog while directly
 edited HTML article bodies remain intact.
+
+Often Misunderstood: IC → M Transitions was recovered from
+`~/Desktop/oft_misunderstood_ic_m_transitions.odt`, archived intact in ignored
+`context/writing-sources/`, and converted to directly editable HTML. Its essay
+category and February 4, 2024 date (supplied by the author) live in `HTML_ESSAYS`.
+The original introduction, section headings, three lists, and two prose
+callouts are retained. The title uses a typographic arrow in place of `->`.
 
 `archive/` holds previous pages for reference, including the multiplayer-agents
 splash. These files are not published.

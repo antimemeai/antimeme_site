@@ -43,6 +43,8 @@ ESSAY_DATES = {
 # These articles are edited directly as HTML. Reimports retain their article
 # markup while refreshing the shared page template, index, and neighbor links.
 HTML_ESSAYS = (
+    ("often-misunderstood-ic-m-transitions", "Often Misunderstood: IC → M Transitions", "February 4, 2024", "2024-02-04",
+     "Some thoughts on management transitions: supporting engineers as they explore becoming managers.", "essay"),
     ("the-hacker-perspective", "The Hacker Perspective", "Spring 2023", "2023",
      "A personal account of curiosity, hacking, and keeping the magic alive. Originally published in 2600, Vol. 40, No. 1.", "magazine essay"),
     ("jsmntl-solo-bot-coding", "JSMNTL: Solo Bot Coding", "June 28, 2026", "2026-06-28",
